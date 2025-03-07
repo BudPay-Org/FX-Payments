@@ -25,7 +25,7 @@ The typical workflow for using the BudPay FX API consists of three main steps:
 ## Available Endpoints
 
 ### 1. FX Rate Endpoint
-[FX_Rate_README.md](./FX_Rate_README.md)
+= [FX_Rate_README.md](./FX_Rate_README.md)
 
 **Endpoint**: `POST https://partners.budpay.com/api/v3/vendorpayment/fx-rate`
 
@@ -37,6 +37,7 @@ This endpoint provides exchange rates between two currencies and allows you to c
 - Obtain a rate token for executing conversions
 
 ### 2. FX Conversion Endpoint
+- [FX_Conversion_README.md](./FX_Conversion_README.md)
 
 **Endpoint**: `POST https://partners.budpay.com/api/v3/vendorpayment/fx-conversion`
 
@@ -48,6 +49,7 @@ This endpoint executes a currency conversion transaction using a previously obta
 - Track conversions with unique reference IDs
 
 ### 3. Get FX Conversion Status Endpoint
+- [FX_Conversion_Status_README.md](./FX_Conversion_Status_README.md)
 
 **Endpoint**: `GET https://partners.budpay.com/api/v3/vendorpayment/fx-conversion/{reference}`
 
@@ -64,11 +66,3 @@ This endpoint allows you to check the status and details of a previously initiat
 2. Always use unique reference identifiers for conversion transactions to ensure proper tracking.
 3. The conversion status may not be immediate. Use the status endpoint to check for completion.
 4. Ensure your API requests include all required parameters to avoid Bad Request errors.
-
-## Additional Documentation
-
-For detailed information about each endpoint, including request parameters, response formats, and error codes, please refer to the following documentation:
-
-- [FX Rate Endpoint Documentation](./FX_Rate_README.md)
-- [FX Conversion Endpoint Documentation](./FX_Conversion_README.md)
-- [FX Conversion Status Endpoint Documentation](./FX_Conversion_Status_README.md)
