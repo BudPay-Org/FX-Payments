@@ -1,7 +1,12 @@
-# Get FX Conversion Status Endpoint
+# Get FX Conversion Status Endpoint Documentation
 
-**URL:** `https://partners.budpay.com/api/v3/vendorpayment/fx-conversion/{reference}`  
-**Method:** GET
+## Overview
+This endpoint allows you to retrieve the current status and details of a previously initiated FX conversion transaction using its unique reference identifier.
+
+## Endpoint Details
+- **URL**: `https://partners.budpay.com/api/v3/vendorpayment/fx-conversion/{reference}`
+- **Method**: GET
+- **Authentication**: Bearer token authentication required (API key should be included in the Authorization header)
 
 ## Path Parameters
 
@@ -9,9 +14,9 @@
 |-----------|-------------|----------|------|
 | reference | The unique reference identifier for the conversion transaction to retrieve | Yes | string |
 
-## Response Codes
+## Response Format
 
-### 200 OK
+### Success Response (200 OK)
 
 ```json
 {
@@ -41,7 +46,7 @@
 | fromAmount | The amount in the source currency |
 | toAmount | The amount in the target currency |
 
-### 400 Bad Request
+### Error Response (400 Bad Request)
 
 ```json
 {
@@ -56,7 +61,30 @@
 }
 ```
 
-### 500 Internal Server Error
+### Error Response (500 Internal Server Error)
 
 Internal Server Error
+
+## Usage Notes
+
+1. This endpoint allows you to check the status of a previously initiated conversion transaction.
+2. The `status` field indicates the current state of the conversion (e.g., "pending", "completed", "failed").
+3. Common status values may include:
+   - PENDING: Transaction is being processed
+   - COMPLETED: Transaction has been successfully processed
+   - FAILED: Transaction failed to process
+
+## Authentication
+This endpoint requires authentication using a Bearer token (API key) in the Authorization header of the request.
+
+## Implementation Example
+
+```bash
+# Example implementation using curl
+curl -X GET "https://partners.budpay.com/api/v3/vendorpayment/fx-conversion/ABC123XYZ" \
+  -H "Authorization: Bearer YOUR_API_KEY"
 ```
+
+Where:
+- `ABC123XYZ` is the unique reference identifier for the conversion transaction
+- `YOUR_API_KEY` should be replaced with your actual API key
