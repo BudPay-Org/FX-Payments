@@ -25,6 +25,7 @@ The typical workflow for using the BudPay FX API consists of three main steps:
 ## Available Endpoints
 
 ### 1. FX Rate Endpoint
+[FX_Rate_README.md](./FX_Rate_README.md)
 
 **Endpoint**: `POST https://partners.budpay.com/api/v3/vendorpayment/fx-rate`
 
