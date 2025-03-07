@@ -1,7 +1,12 @@
-# FX Rate Endpoint
+# FX Rate Endpoint Documentation
 
-**URL:** `https://partners.budpay.com/api/v3/vendorpayment/fx-rate`  
-**Method:** POST
+## Overview
+The FX Rate endpoint provides currency conversion rates between two specified currencies and can be used to calculate equivalent amounts in either the source or target currency.
+
+## Endpoint Details
+- **URL**: `https://partners.budpay.com/api/v3/vendorpayment/fx-rate`
+- **Method**: POST
+- **Authentication**: Bearer token authentication required (API key should be included in the Authorization header)
 
 ## Request Parameters
 
@@ -14,9 +19,19 @@
 
 *Note: Either `fromAmount` OR `toAmount` should be provided, but not necessarily both.
 
-## Response Codes
+## Request Example
 
-### 200 OK
+```json
+{
+  "fromCurrency": "USD",
+  "toCurrency": "NGN",
+  "fromAmount": 100
+}
+```
+
+## Response Format
+
+### Success Response (200 OK)
 
 ```json
 {
@@ -42,7 +57,7 @@
 | fromAmount | The amount in the source currency |
 | toAmount | The amount in the target currency |
 
-### 400 Bad Request
+### Error Response (400 Bad Request)
 
 ```json
 {
@@ -57,6 +72,31 @@
 }
 ```
 
-### 500 Internal Server Error
+### Error Response (500 Internal Server Error)
 
 Internal Server Error
+
+## Usage Notes
+
+1. The rate provided by this endpoint has an expiration time, indicated by both the `rateExpiry` timestamp and the `rateValidityInSeconds` value.
+2. The `rateToken` can be used in subsequent API calls to lock in the exchange rate for a transaction.
+3. You can calculate either way:
+   - Provide `fromAmount` to get the equivalent `toAmount`
+   - Provide `toAmount` to get the equivalent `fromAmount`
+
+## Authentication
+This endpoint requires authentication using a Bearer token (API key) in the Authorization header of the request.
+
+## Implementation Example
+
+```bash
+# Example implementation using curl
+curl -X POST "https://partners.budpay.com/api/v3/vendorpayment/fx-rate" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "fromCurrency": "USD",
+    "toCurrency": "NGN",
+    "fromAmount": 100
+  }'
+```
