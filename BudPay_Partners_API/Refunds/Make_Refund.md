@@ -23,9 +23,9 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
   -H 'Authorization: Bearer YOUR_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{
-  "reference": "string",
-  "customer_note": "Refund for order #12345",
-  "merchant_note": "Refund issued due to overcharge"
+  "reference": "Zotapay_6775575344",
+  "customer_note": "",
+  "merchant_note": ""
 }'
 ```
 
@@ -34,21 +34,21 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
 ### Success Response (200 OK)
 ```json
 {
-  "status": true,
-  "data": {
-    "id": 0,
-    "refundReference": "string",
-    "amount": "string",
-    "currency": "string",
-    "domain": "string",
-    "initiatedBy": "string",
-    "channel": "string",
-    "merchantNote": "string",
-    "customerNote": "string",
-    "status": "processed",
-    "transactionReference": "string",
-    "createdAt": "string"
-  }
+    "status": true,
+    "message": "Refund submitted and in progress ",
+    "data": {
+        "id": 41169,
+        "refundReference": "BR1904MY6VHZOSSSP338",
+        "amount": "500.00",
+        "currency": "GHS",
+        "domain": "test",
+        "initiatedBy": "self",
+        "channel": "API",
+        "merchantNote": " refund for transaction Zotapay_6775575344",
+        "customerNote": " refund for transaction Zotapay_6775575344",
+        "status": "pending",
+        "createdAt": "2025-04-04T02:20:48.0000000"
+    }
 }
 ```
 

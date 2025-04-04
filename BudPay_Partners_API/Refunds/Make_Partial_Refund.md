@@ -25,9 +25,9 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
   -H 'Content-Type: application/json' \
   -d '{
   "reference": "string",
-  "amount": 50.00,
-  "customer_note": "Partial refund for order #12345",
-  "merchant_note": "Refund issued due to overcharge"
+  "amount": 20,
+  "customer_note": "",
+  "merchant_note": ""
 }'
 ```
 
@@ -36,21 +36,21 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 ### Success Response (200 OK)
 ```json
 {
-  "status": true,
-  "data": {
-    "id": 0,
-    "refundReference": "string",
-    "amount": "string",
-    "currency": "string",
-    "domain": "string",
-    "initiatedBy": "string",
-    "channel": "string",
-    "merchantNote": "string",
-    "customerNote": "string",
-    "status": "processed",
-    "transactionReference": "string",
-    "createdAt": "string"
-  }
+    "status": true,
+    "message": "Refund submitted and in progress ",
+    "data": {
+        "id": 41170,
+        "refundReference": "BR1904WA6G6TFYNC0YRC",
+        "amount": "20",
+        "currency": "KES",
+        "domain": "test",
+        "initiatedBy": "self",
+        "channel": "API",
+        "merchantNote": " refund for transaction BUD_17377402598649448",
+        "customerNote": " refund for transaction BUD_17377402598649448",
+        "status": "pending",
+        "createdAt": "2025-04-04T02:31:48.0000000"
+    }
 }
 ```
 

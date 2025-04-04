@@ -23,23 +23,23 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund' \
 ### Success Response (200 OK)
 ```json
 {
-  "status": true,
-  "message": "refund data retrieved ",
-  "data": [
-    {
-      "id": 59788,
-      "refundReference": "refund_BUD_17386151437515993",
-      "amount": "150.10",
-      "currency": "NGN",
-      "domain": "live",
-      "initiatedBy": "system",
-      "channel": "wema",
-      "merchantNote": "Refund of inadequate amount on transaction (BUD_17386151437515993) via 4051484264 (wema)",
-      "customerNote": "Refund of inadequate amount on transaction (BUD_17386151437515993) via 4051484264 (wema)",
-      "status": "processed",
-      "createdAt": "2025-02-03T21:40:49.0000000"
-    }
-  ]
+    "status": true,
+    "message": "refund data retrieved ",
+    "data": [
+        {
+            "id": 41169,
+            "refundReference": "BR1904MY6VHZOSSSP338",
+            "amount": "500.00",
+            "currency": "GHS",
+            "domain": "test",
+            "initiatedBy": "self",
+            "channel": "API",
+            "merchantNote": " refund for transaction Zotapay_6775575344",
+            "customerNote": " refund for transaction Zotapay_6775575344",
+            "status": "pending",
+            "createdAt": "2025-04-04T02:20:48.0000000"
+        }
+    ]
 }
 ```
 

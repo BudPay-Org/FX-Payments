@@ -16,7 +16,7 @@ Retrieves details of a specific refund using the refund reference.
 
 ## Sample Request
 ```bash
-curl -X GET 'https://partners.budpay.com/api/v3/refund/ffddf' \
+curl -X GET 'https://partners.budpay.com/api/v3/refund/Zotapay_6775575344' \
   -H 'accept: text/plain' \
   -H 'Authorization: Bearer YOUR_API_KEY'
 ```
@@ -26,21 +26,21 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund/ffddf' \
 ### Success Response (200 OK)
 ```json
 {
-  "status": true,
-  "data": {
-    "id": 0,
-    "refundReference": "string",
-    "amount": "string",
-    "currency": "string",
-    "domain": "string",
-    "initiatedBy": "string",
-    "channel": "string",
-    "merchantNote": "string",
-    "customerNote": "string",
-    "status": "processed",
-    "transactionReference": "string",
-    "createdAt": "string"
-  }
+    "status": true,
+    "message": "refund data retrieved forZotapay_6775575344",
+    "data": {
+        "id": 41169,
+        "refundReference": "BR1904MY6VHZOSSSP338",
+        "amount": "500.00",
+        "currency": "GHS",
+        "domain": "test",
+        "initiatedBy": "self",
+        "channel": "API",
+        "merchantNote": " refund for transaction Zotapay_6775575344",
+        "customerNote": " refund for transaction Zotapay_6775575344",
+        "status": "pending",
+        "createdAt": "2025-04-04T02:20:48.0000000"
+    }
 }
 ```
 
