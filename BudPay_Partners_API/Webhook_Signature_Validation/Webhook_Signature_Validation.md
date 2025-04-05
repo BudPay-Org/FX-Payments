@@ -78,7 +78,18 @@ if ($merchantsignature != $webhooksignature) {
 Below is a complete PHP implementation for validating webhook signatures:
 
 ```php
+    $sec = "YOUR_BUDPAY_SECRET_KEY";
+    $pub = "YOUR_BUDPAY_PUBLIC KEY";
+    $merchantsignature =  hash_hmac("SHA512", $pub,$sec);
+    $webhooksignature = "THE MERCHANT SIGNATURE LOCATED IN THE HEADER OF THE WEBHOOK RECEIVED";
 
+    if($merchantsignature != $webhooksignature) {
+        "DON’T HONOUR. IT IS A FRAUDULENT ATTEMPT";
+    }
+
+    if($merchantsignature == $webhooksignature) {
+        "THE TRANSACTION WAS INITIATED BY YOU AND THUS BELONGS TO YOU";
+    }
 ```
 
 ---

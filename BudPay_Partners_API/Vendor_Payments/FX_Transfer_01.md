@@ -117,13 +117,13 @@ If the request fails, the API will return an error response:
 }
 ```
 
-Common error codes:
+<!-- Common error codes:
 - `INVALID_RATE_TOKEN`: The rate token is invalid or has expired
 - `INVALID_BANK_DETAILS`: One or more of the bank details provided are invalid
 - `DUPLICATE_REFERENCE`: The reference has already been used
 - `INSUFFICIENT_FUNDS`: Insufficient funds to complete the transaction
 - `AUTHENTICATION_ERROR`: Invalid or missing authentication credentials
-- `SERVER_ERROR`: An internal server error occurred
+- `SERVER_ERROR`: An internal server error occurred -->
 
 ## Notes
 - The rateToken has a limited validity period (typically 5 minutes) as specified in the fx-rate response.
