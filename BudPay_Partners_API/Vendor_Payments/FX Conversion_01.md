@@ -1,6 +1,6 @@
 # FX Conversion API Documentation
 
-This documentation provides details on how to initiate a foreign exchange (FX) conversion using the API endpoint.
+The FX Conversion endpoint allows you to execute a currency conversion transaction using a previously obtained rate token. This endpoint finalizes the conversion process at the locked-in exchange rate.
 
 ---
 
@@ -26,10 +26,11 @@ Specifies the format of the request body.
 The request body should be in JSON format and include the following parameters:
 
 
-| Parameter | Type | Description |
-| :-- | :-- | :-- |
-| `rateToken` | String | Token representing the exchange rate to use. |
-| `reference` | String | Unique reference for the transaction. |
+| Parameter | Description | Required | Type |
+|-----------|-------------|----------|------|
+| `rateToken` | The unique token obtained from a previous [FX Rate](./FX_Rate.md) FX rate request that locks in the exchange rate | Yes | string |
+| `reference` | A unique reference identifier for this conversion transaction | Yes | string |
+
 
 ### Example:
 
@@ -116,3 +117,10 @@ In case of errors, the API will return an appropriate error message and status c
 }
 ```
 
+## Usage Notes
+
+1. This endpoint should be called after obtaining a valid `rateToken` from the FX Rate endpoint.
+2. The `reference` parameter should be unique for each transaction to ensure proper tracking.
+3. The exchange rate used for the conversion is the one associated with the provided `rateToken`.
+4. Ensure the `rateToken` hasn't expired before making this request (check the `rateExpiry` from the FX Rate response).
+5. The response will contain the status of the conversion, which may be immediate or pending depending on the system configuration.

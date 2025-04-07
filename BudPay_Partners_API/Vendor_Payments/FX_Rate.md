@@ -1,7 +1,7 @@
 # Vendor Payment FX Rate API Documentation
 
 ## Overview
-The FX Rate API allows you to retrieve foreign exchange rates for vendor payments. This endpoint calculates the conversion between two currencies based on the provided amount.
+The FX Rate endpoint provides currency conversion rates between two specified currencies and can be used to calculate equivalent amounts in either the source or target currency.
 
 ## Endpoint
 ```
