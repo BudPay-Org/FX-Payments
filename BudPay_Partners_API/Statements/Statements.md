@@ -1,7 +1,7 @@
 # Fetch Transaction Statement
 
 ## Endpoint Details
-- **URL:** `https://api.budpay.com/api/v1/get-statement`
+- **URL:** `https://budpay-statement-service-main.budpay-cluster-prod.com/api/v1/statement/get`
 - **Method:** POST
 - **Authentication:** Bearer Token
 
@@ -16,7 +16,7 @@
 
 ## Example Request
 ```bash
-curl -X POST https://api.budpay.com/api/v1/get-statement \
+curl -X POST https://budpay-statement-service-main.budpay-cluster-prod.com/api/v1/statement/get \
 -H "Authorization: Bearer YOUR_SECRET_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -41,22 +41,62 @@ curl -X POST https://api.budpay.com/api/v1/get-statement \
 ## Successful Response (200 OK)
 ```json
 {
-    "message": "Successful",
-    "status": true,
-    "data": [
-        {
-            "id": 26716266,
-            "transactionDate": "2025-01-20T01:31:09Z",
-            "businessId": 30,
-            "currency": "USD",
-            "note": "Daily settlement on 2025-01-20 with settlement batchID 2343432",
-            "amount": "1",
-            "balBefore": "9",
-            "balAfter": "10",
-            "reference": "23432432"
-        }
-        // ... additional transaction entries
+  "message": "Successful",
+  "status": true,
+  "data": {
+    "openingAvailableBalance": "3925364415.99",
+    "closingAvailableBalance": "4318405260.75",
+    "walletStatements": [
+      {
+        "transactionDate": "2024-10-15T00:01:18Z",
+        "currency": "NGN",
+        "note": "Walter Ledbetter|AKWUOLE OSINACHI CAMILA|R75288521048",
+        "amount": "499999.5",
+        "balBefore": "3925364415.99",
+        "balAfter": "3924864416.49",
+        "reference": "R75288521048",
+        "status": "success",
+        "type": "payout",
+        "debitCreditIndicator": "Debit"
+      },
+      {
+        "transactionDate": "2024-10-15T00:01:27Z",
+        "currency": "NGN",
+        "note": "brian tyler|UKEGBU EMMANUEL UKACHUKWU|R81417442898",
+        "amount": "247500",
+        "balBefore": "3924864416.49",
+        "balAfter": "3924616916.49",
+        "reference": "R81417442898",
+        "status": "success",
+        "type": "payout",
+        "debitCreditIndicator": "Debit"
+      },
+      {
+        "transactionDate": "2024-10-15T00:01:48Z",
+        "currency": "NGN",
+        "note": "Ihebuche Okorie|NWANKWO KINGSLEY CHUKWUEMEKA|R27480485026",
+        "amount": "250800",
+        "balBefore": "3924616916.49",
+        "balAfter": "3924366116.49",
+        "reference": "R27480485026",
+        "status": "success",
+        "type": "payout",
+        "debitCreditIndicator": "Debit"
+      },
+      {
+        "transactionDate": "2024-10-15T00:01:54Z",
+        "currency": "NGN",
+        "note": "Malkia Zimbi|NAZIRU  YAKUBU|R70437007050",
+        "amount": "49500",
+        "balBefore": "3924366116.49",
+        "balAfter": "3924316616.49",
+        "reference": "R70437007050",
+        "status": "success",
+        "type": "payout",
+        "debitCreditIndicator": "Debit"
+      }
     ]
+  }
 }
 ```
 
@@ -65,16 +105,20 @@ curl -X POST https://api.budpay.com/api/v1/get-statement \
 |-------|------|-------------|
 | `message` | String | Response status message |
 | `status` | Boolean | Indicates successful request |
-| `data` | Array | List of transaction statements |
-| `data[].id` | Number | Unique transaction identifier |
-| `data[].transactionDate` | Datetime | Timestamp of transaction |
-| `data[].businessId` | Number | Associated business ID |
-| `data[].currency` | String | Transaction currency |
-| `data[].note` | String | Transaction description/note |
-| `data[].amount` | String | Transaction amount |
-| `data[].balBefore` | String | Account balance before transaction |
-| `data[].balAfter` | String | Account balance after transaction |
-| `data[].reference` | String | Transaction reference number |
+| `data.openingAvailableBalance` | String | Opening balance for the period |
+| `data.closingAvailableBalance` | String | Closing balance for the period |
+| `data.walletStatements` | Array | List of transaction statements |
+| `walletStatements[].transactionDate` | DateTime | Timestamp of transaction |
+| `walletStatements[].currency` | String | Transaction currency |
+| `walletStatements[].note` | String | Transaction description |
+| `walletStatements[].amount` | String | Transaction amount |
+| `walletStatements[].balBefore` | String | Balance before transaction |
+| `walletStatements[].balAfter` | String | Balance after transaction |
+| `walletStatements[].reference` | String | Transaction reference |
+| `walletStatements[].status` | String | Transaction status |
+| `walletStatements[].type` | String | Transaction type |
+| `walletStatements[].debitCreditIndicator` | String | Indicates if transaction is debit or credit |
+
 
 ## Error Responses
 
