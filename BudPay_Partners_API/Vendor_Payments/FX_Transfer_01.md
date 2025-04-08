@@ -22,7 +22,8 @@ The request body should be a JSON object with the following parameters:
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| rateToken | String | Yes | The rate token obtained from the fx-rate endpoint |
+| currency | String | Yes | The currency code in ISO 4217 format (e.g., "USD", "GBP") |
+| amount | Number | Yes | The amount to transfer in the specified currency |
 | bankCountry | String | Yes | ISO country code of the recipient bank (e.g., "GB") |
 | phone | String | No | Contact phone number for the recipient |
 | email | String | No | Contact email for the recipient |
@@ -43,7 +44,8 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
 --header 'Authorization: {{SecretKey}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "rateToken": "bfxt5490QNNGAD2597N9",
+  "currency": "USD",
+  "amount": "2.00"
   "bankCountry": "GB",
   "phone": "447032522089",
   "email": "pe@budpay.com",
@@ -86,25 +88,25 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
 ```
 
 ## Response Parameters
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| success | Boolean | Status of the request (true for success) |
-| message | String | A description of the outcome |
-| data.status | String | Current status of the transfer (e.g., "pending") |
-| data.fromCurrency | String | The source currency code |
-| data.toCurrency | String | The target currency code |
-| data.buyAmount | Number | The amount in the target currency |
-| data.sellAmount | Number | The amount in the source currency |
-| data.bankCountry | String | ISO country code of the recipient bank |
-| data.bankName | String | Name of the recipient's bank |
-| data.accountNumber | String | Account number or IBAN of the recipient |
-| data.accountName | String | Name of the account holder |
-| data.swiftCode | String | SWIFT/BIC code of the recipient's bank |
-| data.narration | String | Description of the transfer |
-| data.reference | String | Your unique reference for this transaction |
-| data.domain | String | Environment identifier (e.g., "test" or "live") |
-| data.createdAt | String | ISO 8601 timestamp of when the transfer was created |
-| data.updatedAt | String | ISO 8601 timestamp of when the transfer was last updated |
+| Parameter | Type | Description | Nullable |
+|-----------|------|-------------|-----------|
+| success | Boolean | Status of the request (true for success) | No |
+| message | String | A description of the outcome | No |
+| data.status | String | Current status of the transfer (e.g., "pending") | No |
+| data.fromCurrency | String | The source currency code | No |
+| data.toCurrency | String | The target currency code | No |
+| data.buyAmount | Number | The amount in the target currency | No |
+| data.sellAmount | Number | The amount in the source currency | No |
+| data.bankCountry | String | ISO country code of the recipient bank | No |
+| data.bankName | String | Name of the recipient's bank | No |
+| data.accountNumber | String | Account number or IBAN of the recipient | No |
+| data.accountName | String | Name of the account holder | No |
+| data.swiftCode | String | SWIFT/BIC code of the recipient's bank | No |
+| data.narration | String | Description of the transfer | No |
+| data.reference | String | Your unique reference for this transaction | No |
+| data.domain | String | Environment identifier (e.g., "test" or "live") | No |
+| data.createdAt | String | ISO 8601 timestamp of when the transfer was created | No |
+| data.updatedAt | String | ISO 8601 timestamp of when the transfer was last updated | No |
 
 ## Error Responses
 If the request fails, the API will return an error response:
