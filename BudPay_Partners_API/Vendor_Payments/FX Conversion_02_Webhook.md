@@ -27,18 +27,18 @@ Contains detailed information about the FX conversion transaction.
 
 ### **`data` Object Fields**
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `status` | String | Current status of the conversion (e.g., `pending`, `successful`). |
-| `statusMessage` | String | Detailed message about the conversion status (e.g., `"Trade confirmed and processing"`). |
-| `id` | Integer | Unique internal ID for the conversion transaction. |
-| `rateToken` | String | Token representing the exchange rate used for the conversion. |
-| `reference` | String | Unique reference identifier for the transaction. |
-| `rate` | Float | Exchange rate applied for the conversion (e.g., `0.0006675567`). |
-| `fromCurrency` | String | Currency code being converted from (e.g., `NGN`). |
-| `toCurrency` | String | Currency code being converted to (e.g., `USD`). |
-| `fromAmount` | Float | Amount in the source currency (e.g., `3000.00`). |
-| `toAmount` | Float | Amount in the target currency after conversion (e.g., `2.00`). |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `status` | String | Current status of the conversion (e.g., `pending`, `successful`). | No |
+| `statusMessage` | String | Detailed message about the conversion status (e.g., `"Trade confirmed and processing"`). | No |
+| `id` | Integer | Unique internal ID for the conversion transaction. | No |
+| `rateToken` | String | Token representing the exchange rate used for the conversion. | No |
+| `reference` | String | Unique reference identifier for the transaction. | No |
+| `rate` | Float | Exchange rate applied for the conversion (e.g., `0.0006675567`). | No |
+| `fromCurrency` | String | Currency code being converted from (e.g., `NGN`). | No |
+| `toCurrency` | String | Currency code being converted to (e.g., `USD`). | No |
+| `fromAmount` | Float | Amount in the source currency (e.g., `3000.00`). | No |
+| `toAmount` | Float | Amount in the target currency after conversion (e.g., `2.00`). | No |
 
 ---
 

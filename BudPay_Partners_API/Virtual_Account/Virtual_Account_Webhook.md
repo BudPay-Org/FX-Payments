@@ -29,28 +29,28 @@ Provides additional details about the transfer.
 
 ### **`data` Object Fields**
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `id` | Integer | Unique internal ID for the transaction. |
-| `fees` | String | Transaction fee deducted (e.g., `"30"`). |
-| `plan` | Nullable | Subscription plan associated with the transaction (if applicable). |
-| `type` | String | Transaction type (e.g., `dedicated_account`). |
-| `amount` | String | Actual amount received in the transaction (e.g., `"20"`). |
-| `domain` | String | Environment where the transaction occurred (`live` or `test`). |
-| `status` | String | Transaction status (e.g., `success`). |
-| `channel` | String | Payment channel used (e.g., `dedicated_account`). |
-| `gateway` | String | Payment gateway processor (e.g., `wema`). |
-| `message` | String | Human-readable message describing the transaction outcome. |
-| `paid_at` | String | Timestamp of payment completion (format: `dd/MM/yyyy HH:mm:ss`). |
-| `currency` | String | Currency code of the transaction (e.g., `NGN`). |
-| `customer` | Object | Contains customer details (see below). |
-| `reference` | String | Unique reference identifier for the transaction. |
-| `created_at` | String | Timestamp of when the transaction was created (ISO 8601 format). |
-| `ip_address` | Nullable | IP address of the payer (if available). |
-| `business_id` | Integer | ID of the business associated with this transaction. |
-| `customer_id` | Integer | ID of the customer making the payment. |
-| `card_attempt` | Integer | Number of card payment attempts made for this transaction. |
-| `requested_amount` | String | Original requested amount for the transaction (e.g., `"50.00"`). |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `id` | Integer | Unique internal ID for the transaction. | No |
+| `fees` | String | Transaction fee deducted (e.g., `"30"`). | No |
+| `plan` | Nullable | Subscription plan associated with the transaction (if applicable). | Yes |
+| `type` | String | Transaction type (e.g., `dedicated_account`). | No |
+| `amount` | String | Actual amount received in the transaction (e.g., `"20"`). | No |
+| `domain` | String | Environment where the transaction occurred (`live` or `test`). | No |
+| `status` | String | Transaction status (e.g., `success`). | No |
+| `channel` | String | Payment channel used (e.g., `dedicated_account`). | No |
+| `gateway` | String | Payment gateway processor (e.g., `wema`). | No |
+| `message` | String | Human-readable message describing the transaction outcome. | No |
+| `paid_at` | String | Timestamp of payment completion (format: `dd/MM/yyyy HH:mm:ss`). | No |
+| `currency` | String | Currency code of the transaction (e.g., `NGN`). | No |
+| `customer` | Object | Contains customer details (see below). | No |
+| `reference` | String | Unique reference identifier for the transaction. | No |
+| `created_at` | String | Timestamp of when the transaction was created (ISO 8601 format). | No |
+| `ip_address` | Nullable | IP address of the payer (if available). | Yes |
+| `business_id` | Integer | ID of the business associated with this transaction. | No |
+| `customer_id` | Integer | ID of the customer making the payment. | No |
+| `card_attempt` | Integer | Number of card payment attempts made for this transaction. | No |
+| `requested_amount` | String | Original requested amount for the transaction (e.g., `"50.00"`). | No |
 
 ---
 
@@ -59,17 +59,17 @@ Provides additional details about the transfer.
 The customer object contains details about the individual or entity making the payment.
 
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `id` | Integer | Unique ID of the customer. |
-| `email` | String | Customer's email address. |
-| `phone` | String | Customer's phone number. |
-| `domain` | String | Environment associated with this customer (`live`, etc.). |
-| `status` | String | Status of the customer's account (`active`, etc.). |
-| `metadata` | String | Additional metadata related to the customer in JSON format. |
-| `last_name` | String | Customer's last name. |
-| `first_name` | String | Customer's first name. |
-| `customer_code` | String | Unique code identifying this customer in your system. |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `id` | Integer | Unique ID of the customer. | No |
+| `email` | String | Customer's email address. | No |
+| `phone` | String | Customer's phone number. | No |
+| `domain` | String | Environment associated with this customer (`live`, etc.). | No |
+| `status` | String | Status of the customer's account (`active`, etc.). | No |
+| `metadata` | String | Additional metadata related to the customer in JSON format. | Yes |
+| `last_name` | String | Customer's last name. | No |
+| `first_name` | String | Customer's first name. | No |
+| `customer_code` | String | Unique code identifying this customer in your system. | No |
 
 ---
 
@@ -78,18 +78,18 @@ The customer object contains details about the individual or entity making the p
 The transferDetails object provides additional information about the transfer process.
 
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `amount` | String | Total transferred amount (e.g., `"50.00"`). |
-| `bankcode` | String | Bank code associated with the virtual account provider. |
-| `bankname` | String | Name of the bank handling the virtual account (e.g., `"PALMPAY"`). |
-| `craccount` | String | Credit account number receiving funds. |
-| `narration` | String | Description or note for this transaction (e.g., payer's name and phone). |
-| `sessionid` | String | Unique session ID matching this transaction reference. |
-| `craccountname` | String | Name associated with the credit account receiving funds. |
-| `originatorname` | String | Name of the payer initiating this transfer. |
-| `paymentReference` | String | Unique reference identifier for this payment, matching data.reference. |
-| `originatoraccountnumber` | String | Account number of the payer initiating this transfer. |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `amount` | String | Total transferred amount (e.g., `"50.00"`). | No |
+| `bankcode` | String | Bank code associated with the virtual account provider. | No |
+| `bankname` | String | Name of the bank handling the virtual account (e.g., `"PALMPAY"`). | No |
+| `craccount` | String | Credit account number receiving funds. | No |
+| `narration` | String | Description or note for this transaction (e.g., payer's name and phone). | No |
+| `sessionid` | String | Unique session ID matching this transaction reference. | No |
+| `craccountname` | String | Name associated with the credit account receiving funds. | No |
+| `originatorname` | String | Name of the payer initiating this transfer. | No |
+| `paymentReference` | String | Unique reference identifier for this payment, matching data.reference. | No |
+| `originatoraccountnumber` | String | Account number of the payer initiating this transfer. | No |
 
 ---
 

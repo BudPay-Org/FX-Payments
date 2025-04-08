@@ -27,25 +27,25 @@ Contains detailed information about the payout transaction.
 
 ### **`data` Object Fields**
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `id` | Integer | Unique internal ID for the payout transaction. |
-| `reference` | String | Unique reference identifier for the payout (e.g., `BUD_trf_4fe1v.....`). |
-| `sessionid` | String | Session ID associated with the transaction. |
-| `currency` | String | Currency code of the payout (e.g., `NGN`). |
-| `amount` | String | Payout amount in the specified currency (e.g., `"500000"`). |
-| `fee` | String | Transaction fee deducted (e.g., `"100"`). |
-| `bank_code` | String | Code of the beneficiary's bank (e.g., `090405`). |
-| `bank_name` | String | Name of the beneficiary's bank (e.g., `Rolez Microfinance Bank`). |
-| `account_number` | String | Beneficiary's account number (e.g., `0000222293`). |
-| `account_name` | String | Beneficiary's account name (e.g., `Samuel Bud`). |
-| `narration` | String | Transaction description or note (e.g., `"my narration"`). |
-| `domain` | String | Environment where the transaction occurred (e.g., `live` or `test`). |
-| `status` | String | Current status of the payout (e.g., `success`, `failed`, `pending`). |
-| `settled_by` | Nullable | Reserved for future use (typically `null`). |
-| `subaccount` | Nullable | Subaccount associated with the transaction (if applicable). |
-| `created_at` | String | Timestamp of transaction creation (ISO 8601 format). |
-| `updated_at` | String | Timestamp of the latest status update (ISO 8601 format). |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `id` | Integer | Unique internal ID for the payout transaction. | No |
+| `reference` | String | Unique reference identifier for the payout (e.g., `BUD_trf_4fe1v.....`). | No |
+| `sessionid` | String | Session ID associated with the transaction. | No |
+| `currency` | String | Currency code of the payout (e.g., `NGN`). | No |
+| `amount` | String | Payout amount in the specified currency (e.g., `"500000"`). | No |
+| `fee` | String | Transaction fee deducted (e.g., `"100"`). | No |
+| `bank_code` | String | Code of the beneficiary's bank (e.g., `090405`). | No |
+| `bank_name` | String | Name of the beneficiary's bank (e.g., `Rolez Microfinance Bank`). | No |
+| `account_number` | String | Beneficiary's account number (e.g., `0000222293`). | No |
+| `account_name` | String | Beneficiary's account name (e.g., `Samuel Bud`). | No |
+| `narration` | String | Transaction description or note (e.g., `"my narration"`). | No |
+| `domain` | String | Environment where the transaction occurred (e.g., `live` or `test`). | No |
+| `status` | String | Current status of the payout (e.g., `success`, `failed`, `pending`). | No |
+| `settled_by` | Nullable | Reserved for future use (typically `null`). | Yes |
+| `subaccount` | Nullable | Subaccount associated with the transaction (if applicable). | Yes |
+| `created_at` | String | Timestamp of transaction creation (ISO 8601 format). | No |
+| `updated_at` | String | Timestamp of the latest status update (ISO 8601 format). | No |
 
 ---
 

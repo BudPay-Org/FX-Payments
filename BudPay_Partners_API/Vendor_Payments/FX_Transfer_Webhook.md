@@ -27,23 +27,23 @@ Contains detailed information about the FX transfer transaction.
 
 ### **`data` Object Fields**
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`). |
-| `fromCurrency` | String | Currency code being sold (e.g., `NGN`). |
-| `toCurrency` | String | Currency code being bought (e.g., `USD`). |
-| `buyAmount` | Float | Amount in the target currency being purchased (e.g., `2.00`). |
-| `sellAmount` | Float | Amount in the source currency being sold (e.g., `3000.00`). |
-| `bankCountry` | String | Country code of the beneficiary bank (e.g., `GB`). |
-| `bankName` | String | Name of the beneficiary bank (e.g., `Citibank NA`). |
-| `accountNumber` | String | Beneficiary's account number or IBAN (e.g., `GB50CITI185008133062560`). |
-| `accountName` | String | Name associated with the beneficiary account (e.g., `BudPay`). |
-| `swiftCode` | String | SWIFT/BIC code of the beneficiary bank (e.g., `CITIGB2LXXX`). |
-| `narration` | String | Description or note for the transaction (e.g., `"Test"`). |
-| `reference` | String | Unique reference identifier for the transaction. |
-| `domain` | String | Environment where the transaction occurred (`live`, `test`, etc.). |
-| `createdAt` | String | Timestamp of when the transaction was created (ISO 8601 format). |
-| `updatedAt` | String | Timestamp of the most recent status update for this transaction. |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`). | No |
+| `fromCurrency` | String | Currency code being sold (e.g., `NGN`). | No |
+| `toCurrency` | String | Currency code being bought (e.g., `USD`). | No |
+| `buyAmount` | Float | Amount in the target currency being purchased (e.g., `2.00`). | No |
+| `sellAmount` | Float | Amount in the source currency being sold (e.g., `3000.00`). | No |
+| `bankCountry` | String | Country code of the beneficiary bank (e.g., `GB`). | No |
+| `bankName` | String | Name of the beneficiary bank (e.g., `Citibank NA`). | No |
+| `accountNumber` | String | Beneficiary's account number or IBAN (e.g., `GB50CITI185008133062560`). | No |
+| `accountName` | String | Name associated with the beneficiary account (e.g., `BudPay`). | No |
+| `swiftCode` | String | SWIFT/BIC code of the beneficiary bank (e.g., `CITIGB2LXXX`). | No |
+| `narration` | String | Description or note for the transaction (e.g., `"Test"`). | No |
+| `reference` | String | Unique reference identifier for the transaction. | No |
+| `domain` | String | Environment where the transaction occurred (`live`, `test`, etc.). | No |
+| `createdAt` | String | Timestamp of when the transaction was created (ISO 8601 format). | No |
+| `updatedAt` | String | Timestamp of the most recent status update for this transaction. | No |
 
 ---
 

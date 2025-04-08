@@ -27,19 +27,19 @@ Contains detailed information about the refund transaction.
 
 ### **`data` Object Fields**
 
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `id` | Integer | Unique internal ID for the refund transaction. |
-| `refundReference` | String | Unique reference identifier for the refund (e.g., `BR1904MY6VHZOSSSP338`). |
-| `amount` | String | Refund amount in the specified currency (e.g., `"500.00"`). |
-| `currency` | String | Currency code of the refund (e.g., `GHS`). |
-| `domain` | String | Environment where the transaction occurred (`live` or `test`). |
-| `initiatedBy` | String | Who initiated the refund (`self`, `customer`, etc.). |
-| `channel` | String | Channel used to initiate the refund (e.g., `API`, `Dashboard`). |
-| `merchantNote` | String | Internal note provided by the merchant (e.g., reason for refund). |
-| `customerNote` | String | Note visible to the customer (e.g., refund confirmation message). |
-| `status` | String | Current status of the refund (e.g., `pending`, `successful`, `failed`). |
-| `createdAt` | String | Timestamp of when the refund was initiated (ISO 8601 format). |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `id` | Integer | Unique internal ID for the refund transaction. | No |
+| `refundReference` | String | Unique reference identifier for the refund (e.g., `BR1904MY6VHZOSSSP338`). | No |
+| `amount` | String | Refund amount in the specified currency (e.g., `"500.00"`). | No |
+| `currency` | String | Currency code of the refund (e.g., `GHS`). | No |
+| `domain` | String | Environment where the transaction occurred (`live` or `test`). | No |
+| `initiatedBy` | String | Who initiated the refund (`self`, `customer`, etc.). | No |
+| `channel` | String | Channel used to initiate the refund (e.g., `API`, `Dashboard`). | No |
+| `merchantNote` | String | Internal note provided by the merchant (e.g., reason for refund). | Yes |
+| `customerNote` | String | Note visible to the customer (e.g., refund confirmation message). | Yes |
+| `status` | String | Current status of the refund (e.g., `pending`, `successful`, `failed`). | No |
+| `createdAt` | String | Timestamp of when the refund was initiated (ISO 8601 format). | No |
 
 ---
 
