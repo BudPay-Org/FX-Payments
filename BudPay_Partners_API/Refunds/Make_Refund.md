@@ -13,8 +13,8 @@ Initiates a refund for a specific transaction.
 | Key            | Description                                      | Required |
 |---------------|--------------------------------------------------|----------|
 | reference     | The transaction reference to refund             | Yes      |
-| customer_note | A note explaining the refund for the customer   | Yes      |
-| merchant_note | A note explaining the refund for the merchant   | Yes      |
+| customer_note | A note explaining the refund for the customer   | No      |
+| merchant_note | A note explaining the refund for the merchant   |       |
 
 ## Sample Request
 ```bash
@@ -51,6 +51,24 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
     }
 }
 ```
+
+| Key                 | Description                                         | Nullable |
+|---------------------|-----------------------------------------------------|----------|
+| status             | Indicates if the request was successful             | No       |
+| data               | Object containing refund details                     | No       |
+| id                 | Unique refund identifier                            | No       |
+| refundReference    | Unique reference for the refund                     | No       |
+| amount             | Refund amount                                       | No       |
+| currency           | Currency of the refund                              | No       |
+| domain            | API environment (`live` or `sandbox`)                | No       |
+| initiatedBy        | Who initiated the refund (`system`, `merchant`, etc.) | No      |
+| channel            | Refund channel (e.g., `wema`, `pwbt`)               | No       |
+| merchantNote       | Merchant's note explaining the refund               | No      |
+| customerNote       | Customer-facing note for the refund                 | No      |
+| status             | Refund status (`pending`, `processed`, `failed`)    | No       |
+| transactionReference | Reference of the original transaction              | No       |
+| createdAt          | Timestamp when the refund was initiated             | No       |
+
 
 | Key                 | Description                                         |
 |---------------------|-----------------------------------------------------|
