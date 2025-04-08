@@ -14,7 +14,7 @@ Initiates a refund for a specific transaction.
 |---------------|--------------------------------------------------|----------|
 | reference     | The transaction reference to refund             | Yes      |
 | customer_note | A note explaining the refund for the customer   | No      |
-| merchant_note | A note explaining the refund for the merchant   |       |
+| merchant_note | A note explaining the refund for the merchant   | No      |
 
 ## Sample Request
 ```bash
@@ -70,22 +70,6 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
 | createdAt          | Timestamp when the refund was initiated             | No       |
 
 
-| Key                 | Description                                         |
-|---------------------|-----------------------------------------------------|
-| status             | Indicates if the request was successful             |
-| data               | Object containing refund details                     |
-| id                 | Unique refund identifier                            |
-| refundReference    | Unique reference for the refund                     |
-| amount             | Refund amount                                       |
-| currency           | Currency of the refund                              |
-| domain            | API environment (`live` or `sandbox`)                |
-| initiatedBy        | Who initiated the refund (`system`, `merchant`, etc.) |
-| channel            | Refund channel (e.g., `wema`, `pwbt`)               |
-| merchantNote       | Merchant's note explaining the refund               |
-| customerNote       | Customer-facing note for the refund                 |
-| status             | Refund status (`pending`, `processed`, `failed`)    |
-| transactionReference | Reference of the original transaction              |
-| createdAt          | Timestamp when the refund was initiated             |
 
 ### Error Response (400 Bad Request)
 ```json

@@ -1,7 +1,7 @@
 # Fetch Transaction Statement
 
 ## Endpoint Details
-- **URL:** `https://budpay-statement-service-main.budpay-cluster-prod.com/api/v1/statement/get`
+- **URL:** `https://partners.budpay.com/api/v3/statement/get`
 - **Method:** POST
 - **Authentication:** Bearer Token
 
@@ -16,7 +16,7 @@
 
 ## Example Request
 ```bash
-curl -X POST https://budpay-statement-service-main.budpay-cluster-prod.com/api/v1/statement/get \
+curl -X POST https://partners.budpay.com/api/v3/statement/get \
 -H "Authorization: Bearer YOUR_SECRET_KEY" \
 -H "Content-Type: application/json" \
 -d '{
