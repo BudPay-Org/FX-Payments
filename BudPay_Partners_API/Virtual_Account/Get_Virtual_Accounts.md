@@ -70,6 +70,24 @@ Retrieve details of a virtual account using its reference.
 }
 ```
 
+
+### Response Fields
+| Field | Type | Description | Nullable |
+|-------|------|-------------|----------|
+| status | Boolean | Request success status | No |
+| message | String | Response message | No |
+| data | Object | Virtual account details | No |
+| data.accountNumber | String | Virtual account number | No |
+| data.accountName | String | Name associated with the account | No |
+| data.bankCode | String | Bank identifier code | No |
+| data.bankName | String | Name of the bank | No |
+| data.accountType | String | Type of virtual account (e.g., "reserved") | No |
+| data.accountStatus | String | Current status of the account | No |
+| data.expiryInMinutes | Number | Minutes until account expiry (0 for non-expiring) | No |
+| data.reference | String | Unique reference identifier | No |
+| data.createdAt | String | ISO 8601 timestamp of account creation | No |
+
+
 ---
 
 ### Notes

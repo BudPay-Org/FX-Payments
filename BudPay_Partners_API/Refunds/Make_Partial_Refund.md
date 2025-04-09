@@ -54,22 +54,23 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 }
 ```
 
-| Key                 | Description                                         |
-|---------------------|-----------------------------------------------------|
-| status             | Indicates if the request was successful             |
-| data               | Object containing refund details                     |
-| id                 | Unique refund identifier                            |
-| refundReference    | Unique reference for the refund                     |
-| amount             | Refund amount                                       |
-| currency           | Currency of the refund                              |
-| domain            | API environment (`live` or `sandbox`)                |
-| initiatedBy        | Who initiated the refund (`system`, `merchant`, etc.) |
-| channel            | Refund channel (e.g., `wema`, `pwbt`)               |
-| merchantNote       | Merchant's note explaining the refund               |
-| customerNote       | Customer-facing note for the refund                 |
-| status             | Refund status (`pending`, `processed`, `failed`)    |
-| transactionReference | Reference of the original transaction              |
-| createdAt          | Timestamp when the refund was initiated             |
+| Key                 | Description                                         | Nullable |
+|---------------------|-----------------------------------------------------|----------|
+| status             | Indicates if the request was successful             | No       |
+| data               | Object containing refund details                     | No       |
+| id                 | Unique refund identifier                            | No       |
+| refundReference    | Unique reference for the refund                     | No       |
+| amount             | Refund amount                                       | No       |
+| currency           | Currency of the refund                              | No       |
+| domain            | API environment (`live` or `sandbox`)                | No       |
+| initiatedBy        | Who initiated the refund (`system`, `merchant`, etc.) | No       |
+| channel            | Refund channel (e.g., `wema`, `pwbt`)               | No       |
+| merchantNote       | Merchant's note explaining the refund               | Yes      |
+| customerNote       | Customer-facing note for the refund                 | Yes      |
+| status             | Refund status (`pending`, `processed`, `failed`)    | No       |
+| transactionReference | Reference of the original transaction              | No       |
+| createdAt          | Timestamp when the refund was initiated             | No       |
+
 
 ### Error Response (400 Bad Request)
 ```json

@@ -59,18 +59,20 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-rate' \
 ```
 
 ## Response Parameters
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| status | Boolean | Status of the request (true for success) |
-| message | String | A description of the outcome |
-| data.rateToken | String | Unique token for this exchange rate |
-| data.rate | Number | The exchange rate applied |
-| data.rateExpiry | String | ISO 8601 timestamp indicating when the rate expires |
-| data.rateValidityInSeconds | Number | How long the rate is valid in seconds |
-| data.fromCurrency | String | The source currency code |
-| data.toCurrency | String | The target currency code |
-| data.fromAmount | Number | The amount in the source currency |
-| data.toAmount | Number | The calculated amount in the target currency |
+| Parameter | Type | Description | Nullable |
+|-----------|------|-------------|----------|
+| status | Boolean | Status of the request (true for success) | No |
+| message | String | A description of the outcome | No |
+| data.rateToken | String | Unique token for this exchange rate | No |
+| data.rate | Number | The exchange rate applied | No |
+| data.rateExpiry | String | ISO 8601 timestamp indicating when the rate expires | No |
+| data.rateValidityInSeconds | Number | How long the rate is valid in seconds | No |
+| data.fromCurrency | String | The source currency code | No |
+| data.toCurrency | String | The target currency code | No |
+| data.fromAmount | Number | The amount in the source currency | No |
+| data.toAmount | Number | The calculated amount in the target currency | No |
+
+
 
 ## Error Responses
 If the request fails, the API will return an error response:

@@ -65,25 +65,26 @@ curl -X POST 'https://partners.budpay.com/api/v3/transfer' \
 }
 ```
 
-| Key           | Description                                     |
-|--------------|-------------------------------------------------|
-| success      | Indicates if the request was successful        |
-| message      | Status message                                 |
-| data         | Object containing transfer details            |
-| id           | Unique transfer identifier                    |
-| reference    | Transaction reference ID                      |
-| currency     | Currency of the transfer                      |
-| amount       | Transfer amount                               |
-| fee          | Transaction fee                               |
-| bank_code    | Recipient's bank code                         |
-| bank_name    | Recipient's bank name                         |
-| account_number | Recipient's account number                 |
-| account_name  | Recipient's account name                     |
-| narration    | Transfer description                          |
-| domain       | API environment (`live` or `sandbox`)        |
-| status       | Transfer status (`pending`, `completed`, etc.) |
-| updated_at   | Last updated timestamp                        |
-| created_at   | Timestamp of transfer creation               |
+| Key           | Description                                     | Nullable |
+|--------------|-------------------------------------------------|----------|
+| success      | Indicates if the request was successful         | No       |
+| message      | Status message                                  | No       |
+| data         | Object containing transfer details              | No       |
+| id           | Unique transfer identifier                      | No       |
+| reference    | Transaction reference ID                        | No       |
+| currency     | Currency of the transfer                        | No       |
+| amount       | Transfer amount                                 | No       |
+| fee          | Transaction fee                                 | No       |
+| bank_code    | Recipient's bank code                          | No       |
+| bank_name    | Recipient's bank name                          | No       |
+| account_number | Recipient's account number                    | No       |
+| account_name  | Recipient's account name                      | No       |
+| narration    | Transfer description                           | No       |
+| domain       | API environment (`live` or `sandbox`)          | No       |
+| status       | Transfer status (`pending`, `completed`, etc.) | No       |
+| updated_at   | Last updated timestamp                         | No       |
+| created_at   | Timestamp of transfer creation                 | No       |
+
 
 ### Error Response (401 Unauthorized)
 ```json

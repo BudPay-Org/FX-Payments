@@ -86,21 +86,20 @@ The API returns a JSON response indicating the status of the FX conversion. Belo
 
 
 ### Response Fields:
-
-| Field | Type | Description |
-| :-- | :-- | :-- |
-| `status` | Boolean | Indicates if the request was successful. |
-| `message` | String | Describes the outcome of the request. |
-| `data.status` | String | Current status of the FX conversion process. |
-| `data.statusMessage` | String | Detailed message about the conversion status. |
-| `data.id` | Integer | Unique identifier for the conversion transaction. |
-| `data.rateToken` | String | Token used for this FX rate conversion. |
-| `data.reference` | String | Reference number provided in the request. |
-| `data.rate` | Float | Exchange rate applied for conversion. |
-| `data.fromCurrency` | String | Currency being converted from (ISO code). |
-| `data.toCurrency` | String | Currency being converted to (ISO code). |
-| `data.fromAmount` | Float | Amount in source currency being converted. |
-| `data.toAmount` | Float | Amount in target currency after conversion. |
+| Field | Type | Description | Nullable |
+| :-- | :-- | :-- | :-- |
+| `status` | Boolean | Indicates if the request was successful. | No |
+| `message` | String | Describes the outcome of the request. | No |
+| `data.status` | String | Current status of the FX conversion process. | No |
+| `data.statusMessage` | String | Detailed message about the conversion status. | No |
+| `data.id` | Integer | Unique identifier for the conversion transaction. | No |
+| `data.rateToken` | String | Token used for this FX rate conversion. | No |
+| `data.reference` | String | Reference number provided in the request. | No |
+| `data.rate` | Float | Exchange rate applied for conversion. | No |
+| `data.fromCurrency` | String | Currency being converted from (ISO code). | No |
+| `data.toCurrency` | String | Currency being converted to (ISO code). | No |
+| `data.fromAmount` | Float | Amount in source currency being converted. | No |
+| `data.toAmount` | Float | Amount in target currency after conversion. | No |
 
 ---
 

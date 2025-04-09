@@ -101,23 +101,23 @@ curl -X POST https://partners.budpay.com/api/v3/statement/get \
 ```
 
 ### Response Fields
-| Field | Type | Description |
-|-------|------|-------------|
-| `message` | String | Response status message |
-| `status` | Boolean | Indicates successful request |
-| `data.openingAvailableBalance` | String | Opening balance for the period |
-| `data.closingAvailableBalance` | String | Closing balance for the period |
-| `data.walletStatements` | Array | List of transaction statements |
-| `walletStatements[].transactionDate` | DateTime | Timestamp of transaction |
-| `walletStatements[].currency` | String | Transaction currency |
-| `walletStatements[].note` | String | Transaction description |
-| `walletStatements[].amount` | String | Transaction amount |
-| `walletStatements[].balBefore` | String | Balance before transaction |
-| `walletStatements[].balAfter` | String | Balance after transaction |
-| `walletStatements[].reference` | String | Transaction reference |
-| `walletStatements[].status` | String | Transaction status |
-| `walletStatements[].type` | String | Transaction type |
-| `walletStatements[].debitCreditIndicator` | String | Indicates if transaction is debit or credit |
+| Field | Type | Description | Nullable |
+|-------|------|-------------|----------|
+| `message` | String | Response status message | No |
+| `status` | Boolean | Indicates successful request | No |
+| `data.openingAvailableBalance` | String | Opening balance for the period | No |
+| `data.closingAvailableBalance` | String | Closing balance for the period | No |
+| `data.walletStatements` | Array | List of transaction statements | No |
+| `walletStatements[].transactionDate` | DateTime | Timestamp of transaction | No |
+| `walletStatements[].currency` | String | Transaction currency | No |
+| `walletStatements[].note` | String | Transaction description | No |
+| `walletStatements[].amount` | String | Transaction amount | No |
+| `walletStatements[].balBefore` | String | Balance before transaction | No |
+| `walletStatements[].balAfter` | String | Balance after transaction | No |
+| `walletStatements[].reference` | String | Transaction reference | No |
+| `walletStatements[].status` | String | Transaction status | No |
+| `walletStatements[].type` | String | Transaction type | No |
+| `walletStatements[].debitCreditIndicator` | String | Indicates if transaction is debit or credit | No |
 
 
 ## Error Responses

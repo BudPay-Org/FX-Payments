@@ -60,18 +60,19 @@ This endpoint allows you to create a new virtual account in the BudPay system. Y
 }
 ```
 
-| Field | Description |
-|-------|-------------|
-| status | Boolean indicating if the request was successful |
-| message | A message describing the result of the operation |
-| data | Object containing the created virtual account details |
-| data.accountNumber | The generated virtual account number |
-| data.accountName | The name associated with the virtual account |
-| data.bankCode | The code of the bank where the account is created |
-| data.bankName | The name of the bank where the account is created |
-| data.accountType | The type of the virtual account (e.g., "reserved") |
-| data.accountStatus | The current status of the account (e.g., "active") |
-| data.expiryInMinutes | The number of minutes until account expiration (0 indicates no expiration) |
+| Field | Description | Nullable |
+|-------|-------------|----------|
+| status | Boolean indicating if the request was successful | No |
+| message | A message describing the result of the operation | No |
+| data | Object containing the created virtual account details | No |
+| data.accountNumber | The generated virtual account number | No |
+| data.accountName | The name associated with the virtual account | No |
+| data.bankCode | The code of the bank where the account is created | No |
+| data.bankName | The name of the bank where the account is created | No |
+| data.accountType | The type of the virtual account (e.g., "reserved") | No |
+| data.accountStatus | The current status of the account (e.g., "active") | No |
+| data.expiryInMinutes | The number of minutes until account expiration (0 indicates no expiration) | No |
+
 
 ### Error Response
 ```json

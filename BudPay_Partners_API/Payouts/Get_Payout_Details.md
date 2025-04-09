@@ -48,26 +48,29 @@ curl -X GET 'https://partners.budpay.com/api/v3/transfers/AZEDPY0000016' \
 }
 ```
 
-| Key           | Description                                      |
-|--------------|--------------------------------------------------|
-| success      | Indicates if the request was successful         |
-| message      | Status message                                  |
-| data         | Object containing payout details               |
-| id           | Unique transfer identifier                     |
-| sessionid    | Internal session ID for tracking               |
-| reference    | Transaction reference ID                       |
-| currency     | Currency of the payout                         |
-| amount       | Payout amount                                  |
-| fee          | Transaction fee                                |
-| bank_code    | Recipient's bank code                          |
-| bank_name    | Recipient's bank name                          |
-| account_number | Recipient's account number                  |
-| account_name  | Recipient's account name                      |
-| narration    | Payout description                             |
-| domain       | API environment (`live` or `sandbox`)         |
-| status       | Payout status (`pending`, `success`, etc.)     |
-| updated_at   | Last updated timestamp                         |
-| created_at   | Timestamp of payout creation                  |
+
+| Key           | Description                                      | Nullable |
+|--------------|--------------------------------------------------|----------|
+| success      | Indicates if the request was successful          | No       |
+| message      | Status message                                   | No       |
+| data         | Object containing payout details                 | No       |
+| id           | Unique transfer identifier                       | No       |
+| sessionid    | Internal session ID for tracking                 | No       |
+| reference    | Transaction reference ID                         | No       |
+| currency     | Currency of the payout                          | No       |
+| amount       | Payout amount                                   | No       |
+| fee          | Transaction fee                                 | No       |
+| bank_code    | Recipient's bank code                           | No       |
+| bank_name    | Recipient's bank name                           | No       |
+| account_number | Recipient's account number                    | No       |
+| account_name  | Recipient's account name                       | No       |
+| narration    | Payout description                              | No       |
+| domain       | API environment (`live` or `sandbox`)           | No       |
+| status       | Payout status (`pending`, `success`, etc.)      | No       |
+| updated_at   | Last updated timestamp                          | No       |
+| created_at   | Timestamp of payout creation                    | No       |
+
+
 
 ### Error Response (400 Bad Request)
 ```json
