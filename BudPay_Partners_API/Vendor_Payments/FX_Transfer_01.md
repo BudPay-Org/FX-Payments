@@ -25,15 +25,15 @@ The request body should be a JSON object with the following parameters:
 | currency | String | Yes | The currency code in ISO 4217 format (e.g., "USD", "GBP") |
 | amount | Number | Yes | The amount to transfer in the specified currency |
 | bankCountry | String | Yes | ISO country code of the recipient bank (e.g., "GB") |
-| phone | String | No | Contact phone number for the recipient |
-| email | String | No | Contact email for the recipient |
+| phone | String | Yes | Contact phone number for the recipient |
+| email | String | Yes | Contact email for the recipient |
 | bankName | String | Yes | Name of the recipient's bank |
 | accountNumber | String | Yes | Account number or IBAN of the recipient |
 | accountName | String | Yes | Name of the account holder |
 | accountType | String | Yes | Type of account ("Individual" or "Corporate") |
-| address | String | No | Physical address of the recipient |
-| city | String | No | City of the recipient |
-| postalCode | String | No | Postal code of the recipient |
+| address | String | Yes | Physical address of the recipient |
+| city | String | Yes | City of the recipient |
+| postalCode | String | Yes | Postal code of the recipient |
 | swiftCode | String | Yes | SWIFT/BIC code of the recipient's bank |
 | narration | String | Yes | Description of the transfer |
 | reference | String | Yes | Your unique reference for this transaction |
