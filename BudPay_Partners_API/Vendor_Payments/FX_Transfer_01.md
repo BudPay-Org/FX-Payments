@@ -69,10 +69,8 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
     "message": "Transfer successfully logged and processing",
     "data": {
         "status": "pending",
-        "fromCurrency": "NGN",
-        "toCurrency": "USD",
-        "buyAmount": 2.00,
-        "sellAmount": 3000.00,
+        "currency": "USD",
+        "amount": 2.00,
         "bankCountry": "GB",
         "bankName": "Citibank NA",
         "accountNumber": "GB50CITI185008133062560",
@@ -88,25 +86,25 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
 ```
 
 ## Response Parameters
-| Parameter | Type | Description | Nullable |
-|-----------|------|-------------|-----------|
-| success | Boolean | Status of the request (true for success) | No |
-| message | String | A description of the outcome | No |
+| Field | Type | Description | Nullable |
+|-------|------|-------------|----------|
+| success | Boolean | Indicates if the request was successful | No |
+| message | String | Status message for the operation | No |
+| data | Object | Contains the transfer details | No |
 | data.status | String | Current status of the transfer (e.g., "pending") | No |
-| data.fromCurrency | String | The source currency code | No |
-| data.toCurrency | String | The target currency code | No |
-| data.buyAmount | Number | The amount in the target currency | No |
-| data.sellAmount | Number | The amount in the source currency | No |
-| data.bankCountry | String | ISO country code of the recipient bank | No |
-| data.bankName | String | Name of the recipient's bank | No |
-| data.accountNumber | String | Account number or IBAN of the recipient | No |
+| data.currency | String | Currency code of the transfer (e.g., "USD") | No |
+| data.amount | Number | Transfer amount in specified currency | No |
+| data.bankCountry | String | ISO country code of recipient bank | No |
+| data.bankName | String | Name of the recipient bank | No |
+| data.accountNumber | String | Recipient's account number or IBAN | No |
 | data.accountName | String | Name of the account holder | No |
-| data.swiftCode | String | SWIFT/BIC code of the recipient's bank | No |
-| data.narration | String | Description of the transfer | No |
-| data.reference | String | Your unique reference for this transaction | No |
-| data.domain | String | Environment identifier (e.g., "test" or "live") | No |
-| data.createdAt | String | ISO 8601 timestamp of when the transfer was created | No |
-| data.updatedAt | String | ISO 8601 timestamp of when the transfer was last updated | No |
+| data.swiftCode | String | SWIFT/BIC code of recipient bank | No |
+| data.narration | String | Transfer description/note | No |
+| data.reference | String | Unique transaction reference | No |
+| data.domain | String | API environment ("test" or "live") | No |
+| data.createdAt | String | ISO 8601 timestamp of creation | No |
+| data.updatedAt | String | ISO 8601 timestamp of last update | No |
+
 
 ## Error Responses
 If the request fails, the API will return an error response:

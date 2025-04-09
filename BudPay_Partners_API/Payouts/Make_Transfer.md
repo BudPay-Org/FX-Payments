@@ -86,6 +86,14 @@ curl -X POST 'https://partners.budpay.com/api/v3/transfer' \
 | created_at   | Timestamp of transfer creation                 | No       |
 
 
+### Error Response (400)
+```json
+{
+  "status": false,
+  "message": "Reference already exists"
+}
+```
+
 ### Error Response (401 Unauthorized)
 ```json
 {
