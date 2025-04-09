@@ -106,14 +106,12 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
 | data.updatedAt | String | ISO 8601 timestamp of last update | No |
 
 
-## Error Responses
-If the request fails, the API will return an error response:
+### Error Response (400 Bad Request)
 
 ```json
 {
-  "success": false,
-  "message": "Error message describing the issue",
-  "code": "ERROR_CODE"
+  "status": false,
+  "message": "Reference already exists"
 }
 ```
 

@@ -109,12 +109,24 @@ In case of errors, the API will return an appropriate error message and status c
 
 ### Example Error Response:
 
+
+
+### Error Response (400 Bad Request)
+
 ```json
 {
     "status": false,
     "message": "Invalid rate token provided"
 }
 ```
+
+```json
+{
+  "status": false,
+  "message": "Reference already exists"
+}
+```
+
 
 ## Usage Notes
 

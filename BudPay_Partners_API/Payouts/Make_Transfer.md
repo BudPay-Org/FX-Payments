@@ -86,7 +86,7 @@ curl -X POST 'https://partners.budpay.com/api/v3/transfer' \
 | created_at   | Timestamp of transfer creation                 | No       |
 
 
-### Error Response (400)
+### Error Response (400 Bad Request)
 ```json
 {
   "status": false,

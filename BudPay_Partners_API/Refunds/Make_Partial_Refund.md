@@ -80,6 +80,13 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 }
 ```
 
+```json
+{
+  "status": false,
+  "message": "Reference already exists"
+}
+```
+
 ## Usage Notes
 - Ensure the transaction reference provided exists before making a refund request.
 - The `amount` field should be less than or equal to the total transaction amount.

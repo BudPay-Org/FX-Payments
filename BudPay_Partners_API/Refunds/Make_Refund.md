@@ -79,6 +79,13 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
 }
 ```
 
+```json
+{
+  "status": false,
+  "message": "Reference already exists"
+}
+```
+
 ## Usage Notes
 - Ensure the transaction reference provided exists before making a refund request.
 - The `customer_note` and `merchant_note` provide additional context for the refund.
