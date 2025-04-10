@@ -20,23 +20,24 @@ Authentication is required for this endpoint. Use your Secret Key in the Authori
 ## Request Parameters
 The request body should be a JSON object with the following parameters:
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| currency | String | Yes | The currency code in ISO 4217 format (e.g., "USD", "GBP") |
-| amount | Number | Yes | The amount to transfer in the specified currency |
-| bankCountry | String | Yes | ISO country code of the recipient bank (e.g., "GB") |
-| phone | String | Yes | Contact phone number for the recipient |
-| email | String | Yes | Contact email for the recipient |
-| bankName | String | Yes | Name of the recipient's bank |
-| accountNumber | String | Yes | Account number or IBAN of the recipient |
-| accountName | String | Yes | Name of the account holder |
-| accountType | String | Yes | Type of account ("Individual" or "Corporate") |
-| address | String | Yes | Physical address of the recipient |
-| city | String | Yes | City of the recipient |
-| postalCode | String | Yes | Postal code of the recipient |
-| swiftCode | String | Yes | SWIFT/BIC code of the recipient's bank |
-| narration | String | Yes | Description of the transfer |
-| reference | String | Yes | Your unique reference for this transaction |
+| Parameter | Type | Required | Description | Example |
+|-----------|------|----------|-------------|---------|
+| amount | Number | Yes | Amount to transfer in target currency | `100` |
+| bankCountry | String | Yes | ISO 3166-1 alpha-2 country code of recipient bank | `"GB"` |
+| phone | String | Yes | Recipient's contact phone number with country code | `"447032522089"` |
+| email | String | Yes | Recipient's email address | `"pe@budpay.com"` |
+| bankName | String | Yes | Full name of the recipient's bank | `"Citibank NA"` |
+| accountNumber | String | Yes | Account number or IBAN of recipient | `"GB50CITI185008133062560"` |
+| accountName | String | Yes | Name on the recipient's account | `"BudPay"` |
+| accountType | String | Yes | Type of account ("Individual" or "Corporate") | `"Corporate"` |
+| bankAddress | String | Yes | Complete physical address of recipient bank | `"Canada Square, Canary Wharf, London, E14 5LB, United Kingdom"` |
+| city | String | Yes | City where recipient bank is located | `"London"` |
+| postalCode | String | Yes | Postal/ZIP code of recipient bank | `"E14 5LB"` |
+| swiftCode | String | Yes | SWIFT/BIC code of recipient bank | `"CITIGB2LXXX"` |
+| narration | String | Yes | Description or purpose of transfer | `"Test"` |
+| currency | String | Yes | ISO 4217 currency code for transfer | `"USD"` |
+| reference | String | Yes | Unique identifier for this transaction | `"202504041256009"` |
+
 
 ## Example Request
 ```bash
@@ -44,8 +45,7 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
 --header 'Authorization: {{SecretKey}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "currency": "USD",
-  "amount": "2.00"
+  "amount": 100,
   "bankCountry": "GB",
   "phone": "447032522089",
   "email": "pe@budpay.com",
@@ -53,14 +53,16 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
   "accountNumber": "GB50CITI185008133062560",
   "accountName": "BudPay",
   "accountType": "Corporate",
-  "address": "Canada Square, Canary Wharf, London, E14 5LB, United Kingdom",
+  "bankAddress": "Canada Square, Canary Wharf, London, E14 5LB, United Kingdom",
   "city": "London",
   "postalCode": "E14 5LB",
   "swiftCode": "CITIGB2LXXX",
   "narration": "Test",
-  "reference": "202504041256005"
+   "currency": "USD",
+  "reference": "202504041256009"
 }'
 ```
+
 
 ## Example Response
 ```json
@@ -70,14 +72,14 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
     "data": {
         "status": "pending",
         "currency": "USD",
-        "amount": 2.00,
+        "amount": 100.00,
         "bankCountry": "GB",
         "bankName": "Citibank NA",
         "accountNumber": "GB50CITI185008133062560",
         "accountName": "BudPay",
         "swiftCode": "CITIGB2LXXX",
         "narration": "Test",
-        "reference": "202504041256005",
+        "reference": "202504041256009",
         "domain": "test",
         "createdAt": "2025-04-04T00:49:21.7035798Z",
         "updatedAt": "2025-04-04T00:49:21.7035798Z"
