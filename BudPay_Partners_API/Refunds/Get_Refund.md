@@ -60,21 +60,40 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund' \
 | status         | Refund status (`pending`, `processed`, etc.)             |
 | createdAt      | Timestamp when the refund was initiated                  |
 
-### Error Response (400 Bad Request)
+
+### Error Responses
+
+#### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "Invalid request parameters"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-### Error Response (500 Internal Server Error)
+#### 404 Not Found
 ```json
 {
-  "status": false,
-  "message": "Internal server error"
+    "status": false,
+    "message": "No refund record found for business"
 }
 ```
+
+#### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An internal error occurred please try again"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No refund record found for business | No refunds exist for the merchant account |
+| 500 | An internal error occurred please try again | Server encountered an error processing the request |
+
 
 ## Usage Notes
 - This endpoint returns a list of refunds associated with your BudPay account.

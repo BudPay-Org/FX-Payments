@@ -27,6 +27,37 @@ This endpoint allows you to create a new virtual account in the BudPay system. Y
 - **Method**: POST
 - **Authentication**: Bearer token authentication required (API key should be included in the Authorization header)
 
+
+## Authentication
+This endpoint requires authentication using a Bearer token (API key) in the Authorization header of the request.
+
+
+## Implementation Example
+
+```bash
+# Example implementation using curl
+curl -X POST 'https://partners.budpay.com/api/v3/collection/virtual-account' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer YOUR_API_KEY' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "reference": "unique_reference_123",
+    "amount": 0,
+    "accountType": "reserved",
+    "accountName": "CUSTOMER_ACCOUNT_NAME",
+    "bankCode": "000017",
+    "firstName": "Customer",
+    "lastName": "Name",
+    "customerEmail": "customer@example.com",
+    "expiryInMinutes": 0
+  }'
+```
+
+Where:
+- `YOUR_API_KEY` should be replaced with your actual API key
+- The request body parameters should be replaced with your actual customer information
+
+
 ## Request Parameters
 
 | Parameter | Description | Required | Type |
@@ -74,13 +105,96 @@ This endpoint allows you to create a new virtual account in the BudPay system. Y
 | data.expiryInMinutes | The number of minutes until account expiration (0 indicates no expiration) | No |
 
 
-### Error Response
+## Error Responses
+
+### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "Error message"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
+
+### 400 Bad Request
+```json
+{
+    "status": false,
+    "message": "One or more required value is missing"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Invalid account types, valid values are reserved or checkout"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Amount must be zero for reserved account generation"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Amount must be greater than zero for single use(checkout) account generation"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Reference already exists"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Transaction with Reference already exists"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Selected bank is not available"
+}
+```
+
+### 503 Service Unavailable
+```json
+{
+    "status": false,
+    "message": "Service not available"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "Unable to generate virtual account"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | One or more required value is missing | Required parameters not provided |
+| 400 | Invalid account types | Invalid accountType parameter value |
+| 400 | Amount must be zero for reserved account | Invalid amount for reserved account |
+| 400 | Amount must be greater than zero for checkout | Invalid amount for checkout account |
+| 400 | Reference already exists | Duplicate reference provided |
+| 400 | Transaction with Reference already exists | Reference already used |
+| 400 | Selected bank is not available | Invalid or unavailable bank code |
+| 503 | Service not available | Virtual account service temporarily unavailable |
+| 500 | Unable to generate virtual account | Server error during account creation |
+
 
 ## Usage Notes
 1. Before creating a virtual account, first retrieve the list of available banks using the bank-list endpoint.
@@ -90,31 +204,3 @@ This endpoint allows you to create a new virtual account in the BudPay system. Y
 3. When `expiryInMinutes` is set to 0, the account does not expire.
 4. The `amount` parameter can be set to 0 for unlimited transactions or a specific amount for a single expected transaction.
 5. The `reference` should be unique for each account creation request.
-
-## Authentication
-This endpoint requires authentication using a Bearer token (API key) in the Authorization header of the request.
-
-## Implementation Example
-
-```bash
-# Example implementation using curl
-curl -X POST 'https://partners.budpay.com/api/v3/collection/virtual-account' \
-  -H 'accept: */*' \
-  -H 'Authorization: Bearer YOUR_API_KEY' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "reference": "unique_reference_123",
-    "amount": 0,
-    "accountType": "reserved",
-    "accountName": "CUSTOMER_ACCOUNT_NAME",
-    "bankCode": "000017",
-    "firstName": "Customer",
-    "lastName": "Name",
-    "customerEmail": "customer@example.com",
-    "expiryInMinutes": 0
-  }'
-```
-
-Where:
-- `YOUR_API_KEY` should be replaced with your actual API key
-- The request body parameters should be replaced with your actual customer information

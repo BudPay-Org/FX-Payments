@@ -73,15 +73,14 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-rate' \
 | data.toAmount | Number | The calculated amount in the target currency | No |
 
 
-
 ## Error Responses
 If the request fails, the API will return an error response:
 
+### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "Error message describing the issue",
-  "code": "ERROR_CODE"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 

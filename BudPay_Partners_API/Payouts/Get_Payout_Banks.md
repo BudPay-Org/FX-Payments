@@ -48,19 +48,19 @@ curl -X GET 'https://partners.budpay.com/api/v3/banks/{countryCode}' \
 | bank_name  | Name of the bank                     |
 | bank_code  | Unique code identifying the bank    |
 
-### Error Response (400 Bad Request)
+### Error Response (401 Unauthorized)
 ```json
 {
-  "success": false,
-  "message": "Invalid request parameters"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-### Error Response (500 Internal Server Error)
+### Error Response (500 Internal Server Error) 
 ```json
 {
-  "success": false,
-  "message": "Internal server error"
+    "status": false,
+    "message": "An error occurred getting bank list"
 }
 ```
 

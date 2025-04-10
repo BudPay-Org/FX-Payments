@@ -88,6 +88,41 @@ Retrieve details of a virtual account using its reference.
 | data.createdAt | String | ISO 8601 timestamp of account creation | No |
 
 
+
+## Error Responses
+
+### 401 Unauthorized
+```json
+{
+    "status": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
+
+### 404 Not Found
+```json
+{
+    "status": false,
+    "message": "No virtual account details found"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An error occured, No virtual account details found"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No virtual account details found | Virtual account not found with provided identifier |
+| 500 | An error occured, No virtual account details found | Server encountered an error retrieving account details |
+
+
 ---
 
 ### Notes

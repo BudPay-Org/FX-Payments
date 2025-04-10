@@ -43,27 +43,29 @@ curl -X GET 'https://partners.budpay.com/api/v3/balance/NGN' \
 | currency  | Currency of the balance               |
 | balance   | Available balance in the specified currency |
 
-### Error Response (400 Bad Request)
+### Error Response
+
+#### 401 Unauthorized
 ```json
 {
-  "success": false,
-  "message": "Invalid currency code"
+    "success": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-### Error Response (404 Not Found)
+#### 404 Not Found
 ```json
 {
-  "success": false,
-  "message": "Balance information not found"
+    "success": false,
+    "message": "Balance information not found"
 }
 ```
 
-### Error Response (500 Internal Server Error)
+#### 500 Internal Server Error
 ```json
 {
-  "success": false,
-  "message": "Internal server error"
+    "success": false,
+    "message": "An error occurred in GetWalletBalance"
 }
 ```
 

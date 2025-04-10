@@ -70,21 +70,64 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
 | createdAt          | Timestamp when the refund was initiated             | No       |
 
 
+### Error Responses
 
-### Error Response (400 Bad Request)
+#### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "no record found for transaction with reference string"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
+
+#### 404 Not Found
+```json
+{
+    "status": false,
+    "message": "No record found for transaction with reference XXXXXXXXXXXXX"
+}
+```
+
+#### 400 Bad Request
+```json
+{
+    "status": false,
+    "message": "transaction status is not successful, refund cannot be initiated for a failed transaction XXXXXXXXXXXXXX"
 }
 ```
 
 ```json
 {
-  "status": false,
-  "message": "Reference already exists"
+    "status": false,
+    "message": "This amount will exceed the total transaction amount for this reference XXXXXXXXXX"
 }
 ```
+
+```json
+{
+    "status": false,
+    "message": "Balance is not funded for refund amount"
+}
+```
+
+#### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An internal error occurred please try again"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No record found for transaction with reference | Transaction does not exist |
+| 400 | Transaction status is not successful | Cannot refund failed transactions |
+| 400 | This amount will exceed the total transaction amount | Refund amount too high |
+| 400 | Balance is not funded for refund amount | Insufficient balance for refund |
+| 500 | An internal error occurred please try again | Server encountered an error |
+
 
 ## Usage Notes
 - Ensure the transaction reference provided exists before making a refund request.

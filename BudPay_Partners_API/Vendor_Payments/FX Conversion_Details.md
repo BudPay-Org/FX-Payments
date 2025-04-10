@@ -79,16 +79,38 @@ The API returns a JSON response containing the details of the FX conversion. Bel
 
 ## **Error Handling**
 
-In case of errors, the API will return an appropriate error message and status code.
+The API may return the following error responses:
 
-### Example Error Response:
-
+### 401 Unauthorized
 ```json
 {
     "status": false,
-    "message": "Conversion details not found"
+    "message": "Invalid Merchant Authorization"
 }
 ```
+
+### 404 Not Found
+```json
+{
+    "status": false,
+    "message": "No record found"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An internal error occurred please try again"
+}
+```
+
+### Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No record found | Conversion with specified reference does not exist |
+| 500 | An internal error occurred please try again | Server encountered an error processing the request |
 
 ---
 

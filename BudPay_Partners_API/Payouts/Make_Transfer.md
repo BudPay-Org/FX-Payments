@@ -86,21 +86,96 @@ curl -X POST 'https://partners.budpay.com/api/v3/transfer' \
 | created_at   | Timestamp of transfer creation                 | No       |
 
 
-### Error Response (400 Bad Request)
+### Error Responses
+
+#### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "Reference already exists"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-### Error Response (401 Unauthorized)
+#### 400 Bad Request
 ```json
 {
-  "status": false,
-  "message": "IP whitelisting is required to access this service."
+    "status": false,
+    "message": "One or more required fields is missing"
 }
 ```
+
+```json
+{
+    "status": false,
+    "message": "Transaction Amount must be greater than 0"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Unknown bank code, bank code must be 6 digits"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "MetaData must be a valid JSON string"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Transaction reference already exist"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "You have insufficient balance"
+}
+```
+
+#### 403 Forbidden
+```json
+{
+    "status": false,
+    "message": "Incomplete merchant setup please contact admin"
+}
+```
+
+#### 503 Service Unavailable
+```json
+{
+    "status": false,
+    "message": "Service Unavailable, please contact support"
+}
+```
+
+#### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An error occurred initiating transfer"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | One or more required fields is missing | Required request parameters are not provided |
+| 400 | Transaction Amount must be greater than 0 | Invalid amount specified |
+| 400 | Unknown bank code, bank code must be 6 digits | Invalid bank code format |
+| 400 | MetaData must be a valid JSON string | Invalid metadata format |
+| 400 | Transaction reference already exist | Duplicate reference ID |
+| 400 | You have insufficient balance | Not enough funds to complete transfer |
+| 403 | Incomplete merchant setup please contact admin | Account setup needs completion |
+| 503 | Service Unavailable, please contact support | Service temporarily unavailable |
+| 500 | An error occurred initiating transfer | Server encountered an error |
 
 ## Usage Notes
 - Ensure the bank code is obtained from the **Get Payout Banks** endpoint.

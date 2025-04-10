@@ -122,6 +122,32 @@ curl -X POST https://partners.budpay.com/api/v3/statement/get \
 
 ## Error Responses
 
+### Unauthorized (401)
+```json
+{
+    "message": "Invalid Merchant Authorization",
+    "status": false,
+    "error": "Authentication failed"
+}
+```
+
+### Not Found (404)
+```json
+{
+    "message": "No record found for the Business",
+    "status": false,
+    "error": "Business not found"
+}
+```
+
+```json
+{
+    "message": "No record found for selected period",
+    "status": false,
+    "error": "No transactions found"
+}
+```
+
 ### Bad Request (400)
 ```json
 {
@@ -139,6 +165,16 @@ curl -X POST https://partners.budpay.com/api/v3/statement/get \
     "error": "Unable to retrieve transaction statement"
 }
 ```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No record found for the Business | Business account does not exist |
+| 404 | No record found for selected period | No transactions found in date range |
+| 400 | Invalid date range | Start date is after end date |
+| 500 | Internal Server Error | Server encountered an error |
+
 
 ## Notes
 - Dates must be in YYYY-MM-DD format

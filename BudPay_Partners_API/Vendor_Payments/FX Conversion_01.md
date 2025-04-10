@@ -107,25 +107,45 @@ The API returns a JSON response indicating the status of the FX conversion. Belo
 
 In case of errors, the API will return an appropriate error message and status code.
 
-### Example Error Response:
 
+### 401 Unauthorized
+```json
+{
+    "status": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
 
-
-### Error Response (400 Bad Request)
+### 400 Bad Request
+```json
+{
+    "status": false,
+    "message": "Invalid rate token"
+}
+```
 
 ```json
 {
     "status": false,
-    "message": "Invalid rate token provided"
+    "message": "Expired rate token"
 }
 ```
 
+### 500 Internal Server Error
 ```json
 {
-  "status": false,
-  "message": "Reference already exists"
+    "status": false,
+    "message": "An internal error occurred please try again"
 }
 ```
+
+### Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | Invalid rate token | The provided rate token is not valid |
+| 400 | Expired rate token | The rate token has expired |
+| 500 | An internal error occurred please try again | Server encountered an error |
 
 
 ## Usage Notes

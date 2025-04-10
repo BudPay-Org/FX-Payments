@@ -15,6 +15,25 @@ curl -X GET 'https://partners.budpay.com/api/v3/collection/virtual-accounts/bank
   -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 
+## Authentication
+This endpoint requires authentication using a Bearer token (API key) in the Authorization header of the request.
+
+---
+
+## Implementation Example
+
+```bash
+# Example implementation using curl
+curl -X GET 'https://partners.budpay.com/api/v3/collection/virtual-accounts/bank-list' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer YOUR_API_KEY'
+```
+
+Where:
+- `YOUR_API_KEY` should be replaced with your actual API key
+
+---
+
 ## Request Parameters
 This endpoint does not require any request parameters.
 
@@ -54,22 +73,43 @@ This endpoint does not require any request parameters.
 }
 ```
 
+
+## Error Responses
+
+### 401 Unauthorized
+```json
+{
+    "status": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
+
+### 503 Service Unavailable
+```json
+{
+    "status": false,
+    "message": "Service not available"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An error occurred Getting bank list"
+}
+```
+
+## Response Status Codes
+
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 200 | Available Banks retrieved | Successfully retrieved bank list |
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 503 | Service not available | Bank list service temporarily unavailable |
+| 500 | An error occurred Getting bank list | Server encountered an error processing request |
+
 ## Usage Notes
 1. This endpoint must be called before creating virtual accounts to obtain the necessary bank codes.
 2. The response includes all banks available for virtual account creation within the BudPay system.
 3. Bank availability may vary based on your account configuration and geographical restrictions.
-
-## Authentication
-This endpoint requires authentication using a Bearer token (API key) in the Authorization header of the request.
-
-## Implementation Example
-
-```bash
-# Example implementation using curl
-curl -X GET 'https://partners.budpay.com/api/v3/collection/virtual-accounts/bank-list' \
-  -H 'accept: */*' \
-  -H 'Authorization: Bearer YOUR_API_KEY'
-```
-
-Where:
-- `YOUR_API_KEY` should be replaced with your actual API key

@@ -63,13 +63,39 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund/Zotapay_6775575344' \
 | createdAt          | Timestamp when the refund was initiated             | No       |
 
 
-### Error Response (404 Not Found)
+### Error Responses
+
+#### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "no record found for transaction with reference ffddf"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
+
+#### 404 Not Found
+```json
+{
+    "status": false,
+    "message": "No refund record found for business"
+}
+```
+
+#### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An internal error occurred please try again"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No refund record found for business | No refunds exist for the merchant account |
+| 500 | An internal error occurred please try again | Server encountered an error processing the request |
+
 
 ## Usage Notes
 - Use this endpoint to track the status of a specific refund transaction.

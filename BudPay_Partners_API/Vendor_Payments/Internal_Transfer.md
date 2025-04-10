@@ -115,19 +115,120 @@ The API returns a JSON response confirming the transaction status. Below is an e
 
 ---
 
-## **Error Handling**
+## Error Responses
 
-In case of errors, the API will return an appropriate error message and status code.
+### 401 Unauthorized
+```json
+{
+    "success": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
 
-### Example Error Response:
+### 400 Bad Request
+```json
+{
+    "success": false,
+    "message": "One or more required fields is missing"
+}
+```
 
 ```json
 {
     "success": false,
-    "message": "Invalid beneficiary merchant ID",
-    "data": null
+    "message": "Transaction Amount must be greater than 0"
 }
 ```
+
+```json
+{
+    "success": false,
+    "message": "Currency not supported"
+}
+```
+
+```json
+{
+    "success": false,
+    "message": "Beneficiary account name mismatch"
+}
+```
+
+```json
+{
+    "success": false,
+    "message": "Transaction reference already exist"
+}
+```
+
+```json
+{
+    "success": false,
+    "message": "Transfer between same currrency on same business id not allowed"
+}
+```
+
+```json
+{
+    "success": false,
+    "message": "No active rate found for currency pair"
+}
+```
+
+### 403 Forbidden
+```json
+{
+    "success": false,
+    "message": "Incomplete merchant setup please contact admin"
+}
+```
+
+```json
+{
+    "success": false,
+    "message": "Beneficiary merchant does not have the receiving balance setup please contact admin"
+}
+```
+
+```json
+{
+    "success": false,
+    "message": "Insufficient balance for payment processing"
+}
+```
+
+### 503 Service Unavailable
+```json
+{
+    "success": false,
+    "message": "Service Unavailable, please contact support"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+    "success": false,
+    "message": "An internal processing error occured please try again"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | One or more required fields is missing | Required parameters not provided |
+| 400 | Transaction Amount must be greater than 0 | Invalid amount specified |
+| 400 | Currency not supported | Unsupported currency code |
+| 400 | Beneficiary account name mismatch | Account name verification failed |
+| 400 | Transaction reference already exist | Duplicate reference |
+| 400 | Transfer between same currrency on same business id not allowed | Invalid transfer attempt |
+| 400 | No active rate found for currency pair | Exchange rate not available |
+| 403 | Incomplete merchant setup | Account setup needs completion |
+| 403 | Beneficiary merchant does not have receiving balance setup | Recipient setup incomplete |
+| 403 | Insufficient balance for payment processing | Not enough funds |
+| 503 | Service Unavailable | Service temporarily unavailable |
+| 500 | An internal processing error occured | Server error during processing |
 
 ---
 

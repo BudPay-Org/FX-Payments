@@ -72,27 +72,45 @@ curl -X GET 'https://partners.budpay.com/api/v3/transfers/AZEDPY0000016' \
 
 
 
-### Error Response (400 Bad Request)
+### Error Responses
+
+#### 401 Unauthorized
 ```json
 {
-  "success": false,
-  "message": "Invalid reference ID"
+    "success": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-### Error Response (404 Not Found)
+#### 400 Bad Request
 ```json
 {
-  "success": false,
-  "message": "Payout details not found"
+    "success": false,
+    "message": "Please supply the transaction reference"
 }
 ```
 
-### Error Response (500 Internal Server Error)
+#### 404 Not Found
 ```json
 {
-  "success": false,
-  "message": "Internal server error"
+    "success": false,
+    "message": "Transaction record not found"
+}
+```
+
+#### 202 Accepted
+```json
+{
+    "success": true,
+    "message": "Transaction in progress"
+}
+```
+
+#### 500 Internal Server Error
+```json
+{
+    "success": false,
+    "message": "An error occurred in GetTransferStatus"
 }
 ```
 

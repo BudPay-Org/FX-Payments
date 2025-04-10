@@ -64,3 +64,37 @@ curl -X GET 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer/202504
 | data.sellAmount | Number | The amount in the source currency | No |
 | data.bankCountry | String | ISO country code of the recipient bank | No |
 | data.bankName | String | Name of the recipient bank | No |
+
+
+## Error Responses
+
+### 401 Unauthorized
+```json
+{
+    "success": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
+
+### 400 Bad Request
+```json
+{
+    "success": false,
+    "message": "Please supply the reference"
+}
+```
+
+### 404 Not Found
+```json
+{
+    "success": false,
+    "message": "Reference does not exists"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | Please supply the reference | Reference parameter is missing |
+| 404 | Reference does not exists | No transfer found with provided reference |

@@ -106,22 +106,81 @@ curl -X POST 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer' \
 | data.updatedAt | String | ISO 8601 timestamp of last update | No |
 
 
-### Error Response (400 Bad Request)
+## Error Responses
 
+### 401 Unauthorized
 ```json
 {
-  "status": false,
-  "message": "Reference already exists"
+    "status": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-<!-- Common error codes:
-- `INVALID_RATE_TOKEN`: The rate token is invalid or has expired
-- `INVALID_BANK_DETAILS`: One or more of the bank details provided are invalid
-- `DUPLICATE_REFERENCE`: The reference has already been used
-- `INSUFFICIENT_FUNDS`: Insufficient funds to complete the transaction
-- `AUTHENTICATION_ERROR`: Invalid or missing authentication credentials
-- `SERVER_ERROR`: An internal server error occurred -->
+### 400 Bad Request
+```json
+{
+    "status": false,
+    "message": "One or more required fields is missing"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Reference already exists"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Insufficient balance for payment processing"
+}
+```
+
+### 403 Forbidden
+```json
+{
+    "status": false,
+    "message": "Incomplete merchant setup please contact admin"
+}
+```
+
+### 503 Service Unavailable
+```json
+{
+    "status": false,
+    "message": "Service Unavailable, please contact support"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "Unable to process FX transfer"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "An error occurred initiating transfer"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | One or more required fields is missing | Required parameters not provided |
+| 400 | Reference already exists | Duplicate transaction reference |
+| 400 | Insufficient balance for payment processing | Not enough funds available |
+| 403 | Incomplete merchant setup please contact admin | Account setup incomplete |
+| 503 | Service Unavailable, please contact support | Service temporarily unavailable |
+| 500 | Unable to process FX transfer | Failed to process the transfer |
+| 500 | An error occurred initiating transfer | General server error |
+
 
 ## Notes
 - The rateToken has a limited validity period (typically 5 minutes) as specified in the fx-rate response.

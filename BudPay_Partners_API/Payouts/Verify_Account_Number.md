@@ -46,21 +46,31 @@ curl -X POST 'https://partners.budpay.com/api/v3/banks/account/verify' \
 | message   | Status message                              |
 | data      | Retrieved account holder's name            |
 
-### Error Response (400 Bad Request)
+
+### Error Responses
+
+#### 401 Unauthorized
 ```json
 {
-  "success": false,
-  "message": "Invalid bank code or account number"
+    "success": false,
+    "message": "Invalid Merchant Authorization"
 }
 ```
 
-### Error Response (500 Internal Server Error)
+#### 404 Not Found
 ```json
 {
-  "success": false,
-  "message": "Internal server error"
+    "success": false,
+    "message": "Account name not found"
 }
 ```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | Account name not found | No matching account found for the provided details |
+
 
 ## Usage Notes
 - Ensure that the bank code is obtained from the **Get Payout Banks** endpoint.

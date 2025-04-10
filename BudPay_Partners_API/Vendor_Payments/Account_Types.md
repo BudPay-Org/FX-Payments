@@ -49,16 +49,33 @@ curl -X GET 'https://partners.budpay.com/api/v3/vendorpayment/account-types' \
 | data[].id | Number | Unique identifier for the account type |
 | data[].name | String | Name of the account type |
 
-## Error Responses
-If the request fails, the API will return an error response:
 
+## Error Responses
+
+#### 401 Unauthorized
 ```json
 {
-  "success": false,
-  "message": "Error message describing the issue",
-  "code": "ERROR_CODE"
+    "success": false,
+    "message": "Invalid Merchant Authorization",
+    "code": "UNAUTHORIZED"
 }
 ```
+
+#### 500 Internal Server Error
+```json
+{
+    "success": false,
+    "message": "An internal error occurred please try again",
+    "code": "INTERNAL_ERROR"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 500 | An internal error occurred please try again | Server encountered an error processing the request |
+
 
 ## Notes
 - The account type IDs should be used when creating or updating vendor payment configurations.
