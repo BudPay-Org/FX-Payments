@@ -77,12 +77,11 @@ The customer object contains details about the individual or entity making the p
 
 The transferDetails object provides additional information about the transfer process.
 
-
 | Field | Type | Description | Nullable |
 | :-- | :-- | :-- | :-- |
 | `amount` | String | Total transferred amount (e.g., `"50.00"`). | No |
-| `bankcode` | String | Bank code associated with the virtual account provider. | No |
-| `bankname` | String | Name of the bank handling the virtual account (e.g., `"PALMPAY"`). | No |
+| `bankcode` | String | Bank code of the payer's bank initiating the transfer. | No |
+| `bankname` | String | Name of the payer's bank (e.g., `"PALMPAY"`). | No |
 | `craccount` | String | Credit account number receiving funds. | No |
 | `narration` | String | Description or note for this transaction (e.g., payer's name and phone). | No |
 | `sessionid` | String | Unique session ID matching this transaction reference. | No |
