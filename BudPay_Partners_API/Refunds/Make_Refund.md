@@ -13,8 +13,18 @@ Initiates a refund for a specific transaction.
 | Key            | Description                                      | Required |
 |---------------|--------------------------------------------------|----------|
 | reference     | The transaction reference to refund             | Yes      |
+| refundReference | Unique identifier for the refund              | No       |
 | customer_note | A note explaining the refund for the customer   | No      |
 | merchant_note | A note explaining the refund for the merchant   | No      |
+
+
+### RefundReference Format (Optional)
+If provided, the refundReference must follow this structure:
+- Start with "BR"
+- Followed by your Merchant ID
+- Followed by up to 14 characters
+- Example: `BR1904MY6VHZOSSSP338`
+
 
 ## Sample Request
 ```bash
@@ -24,8 +34,9 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
   -H 'Content-Type: application/json' \
   -d '{
   "reference": "Zotapay_6775575344",
-  "customer_note": "",
-  "merchant_note": ""
+  "refundReference": "BR1904MY6VHZOSSSP338",  // Optional 
+  "customer_note": "Refund for order cancellation",
+  "merchant_note": "Customer requested refund"
 }'
 ```
 
@@ -110,6 +121,20 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
 }
 ```
 
+```json
+{
+    "status": false,
+    "message": "Transaction reference already exist"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Refund reference already exist"
+}
+```
+
 #### 500 Internal Server Error
 ```json
 {
@@ -121,6 +146,8 @@ curl -X POST 'https://partners.budpay.com/api/v3/refund' \
 ## Error Details
 | Status Code | Message | Description |
 |------------|---------|-------------|
+| 400 | Transaction reference already exist | The provided transaction reference is already in use |
+| 400 | Refund reference already exist | The provided refund reference is already in use |
 | 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
 | 404 | No record found for transaction with reference | Transaction does not exist |
 | 400 | Transaction status is not successful | Cannot refund failed transactions |

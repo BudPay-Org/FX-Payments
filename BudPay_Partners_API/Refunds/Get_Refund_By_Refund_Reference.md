@@ -1,0 +1,117 @@
+# Get Refund by Refund Reference Documentation
+
+## Overview
+Retrieves details of a specific refund using both the transaction reference and refund reference.
+
+## Endpoint Details
+- **URL**: `https://partners.budpay.com/api/v3/refund/{reference}/{refundReference}`
+- **Method**: GET
+- **Authentication**: Bearer token required
+
+## Path Parameters
+
+| Key            | Description                                      | Required |
+|----------------|--------------------------------------------------|----------|
+| reference      | The original transaction reference              | Yes      |
+| refundReference| The unique refund reference to retrieve details | Yes      |
+
+## Sample Request
+```bash
+curl -X GET 'https://partners.budpay.com/api/v3/refund/Zotapay_6775575344/BR1904MY6VHZOSSSP338' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer YOUR_API_KEY'
+```
+
+## Response Format
+
+### Success Response (200 OK)
+```json
+{
+    "status": true,
+    "message": "Refund data retrieved for BR1904MY6VHZOSSSP338",
+    "data": {
+        "id": 41169,
+        "refundReference": "BR1904MY6VHZOSSSP338",
+        "amount": "500.00",
+        "currency": "GHS",
+        "domain": "test",
+        "initiatedBy": "self",
+        "channel": "API",
+        "merchantNote": "Refund for transaction Zotapay_6775575344",
+        "customerNote": "Refund for transaction Zotapay_6775575344",
+        "status": "pending",
+        "createdAt": "2025-04-04T02:20:48.0000000"
+    }
+}
+```
+
+### Response Fields
+| Key                 | Description                                         | Nullable |
+|---------------------|-----------------------------------------------------|----------|
+| status             | Indicates if the request was successful             | No       |
+| message            | Response message                                    | No       |
+| data               | Object containing refund details                     | No       |
+| id                 | Unique refund identifier                            | No       |
+| refundReference    | Unique reference for the refund                     | No       |
+| amount             | Refund amount                                       | No       |
+| currency           | Currency of the refund                              | No       |
+| domain            | API environment (`live` or `test`)                  | No       |
+| initiatedBy        | Who initiated the refund (`self`, `system`, etc.)   | No       |
+| channel            | Refund channel (e.g., `API`)                        | No       |
+| merchantNote       | Merchant's note explaining the refund               | Yes      |
+| customerNote       | Customer-facing note for the refund                 | Yes      |
+| status             | Refund status (`pending`, `processed`, `failed`)    | No       |
+| createdAt          | Timestamp when the refund was initiated             | No       |
+
+### Error Responses
+
+#### 401 Unauthorized
+```json
+{
+    "status": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
+
+#### 400 Bad Request
+```json
+{
+    "status": false,
+    "message": "Please supply the reference"
+}
+```
+
+#### 404 Not Found
+```json
+{
+    "status": false,
+    "message": "No refund found with provided reference"
+}
+```
+
+#### 500 Internal Server Error
+```json
+{
+    "status": false,
+    "message": "An error occurred retrieving refund details"
+}
+```
+
+## Error Details
+| Status Code | Message | Description |
+|------------|---------|-------------|
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 400 | Please supply the reference | Reference parameters are missing |
+| 404 | No refund found with provided reference | No refund exists with provided references |
+| 500 | An error occurred retrieving refund details | Server encountered an error |
+
+## Usage Notes
+- Both the original transaction reference and refund reference are required
+- Use this endpoint to track the status of a specific refund transaction
+- Ensure proper URL encoding of both reference parameters
+
+## Authentication
+Include your API key as a Bearer token in the Authorization header:
+```bash
+-H 'Authorization: Bearer YOUR_API_KEY'
+```

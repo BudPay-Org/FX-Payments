@@ -13,9 +13,19 @@ Initiates a partial refund for a specific transaction.
 | Key            | Description                                      | Required |
 |---------------|--------------------------------------------------|----------|
 | reference     | The transaction reference to refund             | Yes      |
+| refundReference | Unique identifier for the refund              | No       | BR1904WA6G6TFYNC0YRC |
 | amount        | The partial refund amount                       | Yes      |
 | customer_note | A note explaining the refund for the customer   | Yes      |
 | merchant_note | A note explaining the refund for the merchant   | Yes      |
+
+
+### RefundReference Format (Optional)
+If provided, the refundReference must follow this structure:
+- Start with "BR"
+- Followed by your Merchant ID
+- Followed by up to 14 characters
+- Example: `BR1904WA6G6TFYNC0YRC`
+
 
 ## Sample Request
 ```bash
@@ -24,10 +34,11 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
   -H 'Authorization: Bearer YOUR_API_KEY' \
   -H 'Content-Type: application/json' \
   -d '{
-  "reference": "string",
+  "reference": "BUD_17377402598649448",
+  "refundReference": "BR1904WA6G6TFYNC0YRC",  // Optional
   "amount": 20,
-  "customer_note": "",
-  "merchant_note": ""
+  "customer_note": "Refund for partial order cancellation",
+  "merchant_note": "Customer requested partial refund"
 }'
 ```
 
@@ -74,6 +85,35 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 
 ### Error Responses
 
+#### 400 Bad Request
+```json
+{
+    "status": false,
+    "message": "transaction status is not successful, refund cannot be initiated for a failed transaction XXXXXXXXXXXXXX"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Balance is not funded for refund amount"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Transaction reference already exist"
+}
+```
+
+```json
+{
+    "status": false,
+    "message": "Refund reference already exist"
+}
+```
+
 #### 401 Unauthorized
 ```json
 {
@@ -90,21 +130,6 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 }
 ```
 
-#### 400 Bad Request
-```json
-{
-    "status": false,
-    "message": "transaction status is not successful, refund cannot be initiated for a failed transaction XXXXXXXXXXXXXX"
-}
-```
-
-```json
-{
-    "status": false,
-    "message": "Balance is not funded for refund amount"
-}
-```
-
 #### 500 Internal Server Error
 ```json
 {
@@ -116,10 +141,12 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 ## Error Details
 | Status Code | Message | Description |
 |------------|---------|-------------|
-| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
-| 404 | No record found for transaction with reference | Transaction does not exist |
 | 400 | Transaction status is not successful | Cannot refund failed transactions |
 | 400 | Balance is not funded for refund amount | Insufficient balance for refund |
+| 400 | Transaction reference already exist | The provided transaction reference is already in use |
+| 400 | Refund reference already exist | The provided external reference is already in use |
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 404 | No record found for transaction with reference | Transaction does not exist |
 | 500 | An internal error occurred please try again | Server encountered an error |
 
 
