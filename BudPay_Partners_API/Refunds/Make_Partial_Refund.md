@@ -144,7 +144,7 @@ curl -X POST 'https://partners.budpay.com/api/v3/partial-refund' \
 | 400 | Transaction status is not successful | Cannot refund failed transactions |
 | 400 | Balance is not funded for refund amount | Insufficient balance for refund |
 | 400 | Transaction reference already exist | The provided transaction reference is already in use |
-| 400 | Refund reference already exist | The provided external reference is already in use |
+| 400 | Refund reference already exist | The provided refund reference is already in use |
 | 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
 | 404 | No record found for transaction with reference | Transaction does not exist |
 | 500 | An internal error occurred please try again | Server encountered an error |
