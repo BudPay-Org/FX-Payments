@@ -131,6 +131,13 @@ In case of errors, the API will return an appropriate error message and status c
 }
 ```
 
+```json
+{
+    "status": false,
+    "message": "Reference already exists"
+}
+```
+
 ### 500 Internal Server Error
 ```json
 {
@@ -142,9 +149,10 @@ In case of errors, the API will return an appropriate error message and status c
 ### Error Details
 | Status Code | Message | Description |
 |------------|---------|-------------|
-| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
 | 400 | Invalid rate token | The provided rate token is not valid |
 | 400 | Expired rate token | The rate token has expired |
+| 400 | Reference already exists | Duplicate reference |
+| 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
 | 500 | An internal error occurred please try again | Server encountered an error |
 
 

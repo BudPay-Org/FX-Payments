@@ -30,6 +30,7 @@ Contains detailed information about the refund transaction.
 | Field | Type | Description | Nullable |
 | :-- | :-- | :-- | :-- |
 | `id` | Integer | Unique internal ID for the refund transaction. | No |
+| `reference` | String | Original transaction reference (e.g., `Zotapay_6775575344`) | No |
 | `refundReference` | String | Unique reference identifier for the refund (e.g., `BR1904MY6VHZOSSSP338`). | No |
 | `amount` | String | Refund amount in the specified currency (e.g., `"500.00"`). | No |
 | `currency` | String | Currency code of the refund (e.g., `GHS`). | No |
@@ -51,6 +52,7 @@ Contains detailed information about the refund transaction.
     "notifyType": "successful",
     "data": {
         "id": 41169,
+        "reference": "Zotapay_6775575344",
         "refundReference": "BR1904MY6VHZOSSSP338",
         "amount": "500.00",
         "currency": "GHS",

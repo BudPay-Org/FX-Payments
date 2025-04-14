@@ -28,6 +28,7 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund' \
     "data": [
         {
             "id": 41169,
+            "reference": "Zotapay_6775575344",
             "refundReference": "BR1904MY6VHZOSSSP338",
             "amount": "500.00",
             "currency": "GHS",
@@ -49,6 +50,7 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund' \
 | message        | Status message                                           |
 | data           | Array containing refund details                          |
 | id             | Unique refund identifier                                 |
+| reference      | Original transaction reference                           |
 | refundReference | Unique reference for the refund                         |
 | amount         | Refund amount                                            |
 | currency       | Currency of the refund                                   |
