@@ -4,7 +4,7 @@
 Initiates a bank transfer to a specified recipient.
 
 ## Endpoint Details
-- **URL**: `https://partners.budpay.com/api/v3/transfer`
+- **URL**: `https://partners.budpay.com/api/v3/transfers`
 - **Method**: POST
 - **Authentication**: Bearer token required
 
@@ -23,7 +23,7 @@ Initiates a bank transfer to a specified recipient.
 
 ## Sample Request
 ```bash
-curl -X POST 'https://partners.budpay.com/api/v3/transfer' \
+curl -X POST 'https://partners.budpay.com/api/v3/transfers' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer YOUR_API_KEY' \
   -H 'Content-Type: application/json' \
