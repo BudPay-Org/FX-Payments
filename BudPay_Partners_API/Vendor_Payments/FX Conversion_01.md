@@ -108,14 +108,6 @@ The API returns a JSON response indicating the status of the FX conversion. Belo
 In case of errors, the API will return an appropriate error message and status code.
 
 
-### 401 Unauthorized
-```json
-{
-    "status": false,
-    "message": "Invalid Merchant Authorization"
-}
-```
-
 ### 400 Bad Request
 ```json
 {
@@ -138,6 +130,22 @@ In case of errors, the API will return an appropriate error message and status c
 }
 ```
 
+### 401 Unauthorized
+```json
+{
+    "status": false,
+    "message": "Invalid Merchant Authorization"
+}
+```
+
+### 403 Forbidden
+```json
+{
+    "status": false,
+    "message": "Fx Window currently inactive"
+}
+```
+
 ### 500 Internal Server Error
 ```json
 {
@@ -153,6 +161,7 @@ In case of errors, the API will return an appropriate error message and status c
 | 400 | Expired rate token | The rate token has expired |
 | 400 | Reference already exists | Duplicate reference |
 | 401 | Invalid Merchant Authorization | API key is missing, invalid or expired |
+| 403 | Fx Window currently inactive | FX trading window is currently closed |
 | 500 | An internal error occurred please try again | Server encountered an error |
 
 
