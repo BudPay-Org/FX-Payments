@@ -19,7 +19,7 @@ The webhook payload is a JSON object containing the following fields:
 - **`notify`**: `"fx-transfer"`
 Indicates this is an FX transfer-related notification.
 - **`notifyType`**: `"successful"`
-Specifies the type of notification (e.g., `successful`, `failed`, `pending`).
+Specifies the type of notification (e.g., `successful`, `failed`, `pending`, `processing`).
 - **`data`**:
 Contains detailed information about the FX transfer transaction.
 

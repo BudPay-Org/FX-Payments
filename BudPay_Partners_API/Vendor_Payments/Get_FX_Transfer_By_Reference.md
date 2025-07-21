@@ -57,7 +57,7 @@ curl -X GET 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer/202504
 |-----------|------|-------------|----------|
 | success | Boolean | Status of the request (true for success) | No |
 | message | String | A description of the outcome | No |
-| data.status | String | Current status of the transfer (e.g., "awaiting approval", "pending", "completed", "failed") | No |
+| data.status | String | Current status of the transfer (e.g., "awaiting approval", "pending", "processing", "completed", "failed") | No |
 | data.fromCurrency | String | The source currency code | No |
 | data.toCurrency | String | The target currency code | No |
 | data.buyAmount | Number | The amount in the target currency | No |
