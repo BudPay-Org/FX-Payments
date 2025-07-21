@@ -29,7 +29,7 @@ Contains detailed information about the FX transfer transaction.
 
 | Field | Type | Description | Nullable |
 | :-- | :-- | :-- | :-- |
-| `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`). | No |
+| `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`, `processing`). | No |
 | `currency` | String | Currency code of the transfer (e.g., "USD"). | No |
 | `amount` | Float | Transfer amount in specified currency. | No |
 | `bankCountry` | String | Country code of the beneficiary bank (e.g., `GB`). | No |
