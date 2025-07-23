@@ -30,8 +30,12 @@ Contains detailed information about the FX transfer transaction.
 | Field | Type | Description | Nullable |
 | :-- | :-- | :-- | :-- |
 | `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`, `processing`). | No |
-| `currency` | String | Currency code of the transfer (e.g., "USD"). | No |
-| `amount` | Float | Transfer amount in specified currency. | No |
+| `fromCurrency` | String | The source currency code | No |
+| `currency` | String | The source currency code (same as fromCurrency) | No |
+| `toCurrency` | String | The target currency code | No |
+| `buyAmount` | Number | The amount in the target currency | No |
+| `amount` | Number | The amount in the target currency (same as buyAmount) | No |
+| `sellAmount` | Number | The amount in the source currency | No |
 | `bankCountry` | String | Country code of the beneficiary bank (e.g., `GB`). | No |
 | `bankName` | String | Name of the beneficiary bank (e.g., `Citibank NA`). | No |
 | `accountNumber` | String | Beneficiary's account number or IBAN (e.g., `GB50CITI185008133062560`). | No |
@@ -54,8 +58,10 @@ Contains detailed information about the FX transfer transaction.
     "data": {
         "status": "pending",
         "fromCurrency": "NGN",
+        "currency": "NGN",
         "toCurrency": "USD",
         "buyAmount": 2.00,
+        "amount": 2.00,
         "sellAmount": 3000.00,
         "bankCountry": "GB",
         "bankName": "Citibank NA",

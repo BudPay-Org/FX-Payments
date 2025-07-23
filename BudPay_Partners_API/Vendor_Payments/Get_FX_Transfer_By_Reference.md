@@ -35,8 +35,10 @@ curl -X GET 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer/202504
     "data": {
         "status": "awaiting approval",
         "fromCurrency": "NGN",
+        "currency": "NGN",
         "toCurrency": "USD",
         "buyAmount": 2.00,
+        "amount": 2.00,
         "sellAmount": 3000.00,
         "bankCountry": "GB",
         "bankName": "Citibank NA",
