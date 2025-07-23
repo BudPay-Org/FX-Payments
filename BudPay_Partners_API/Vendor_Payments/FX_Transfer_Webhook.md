@@ -31,10 +31,10 @@ Contains detailed information about the FX transfer transaction.
 | :-- | :-- | :-- | :-- |
 | `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`, `processing`). | No |
 | `fromCurrency` | String | The source currency code | No |
-| `currency` | String | The source currency code (same as fromCurrency) | No |
+| `currency` | String | The source currency code | No |
 | `toCurrency` | String | The target currency code | No |
 | `buyAmount` | Number | The amount in the target currency | No |
-| `amount` | Number | The amount in the target currency (same as buyAmount) | No |
+| `amount` | Number | The amount in the target currency | No |
 | `sellAmount` | Number | The amount in the source currency | No |
 | `bankCountry` | String | Country code of the beneficiary bank (e.g., `GB`). | No |
 | `bankName` | String | Name of the beneficiary bank (e.g., `Citibank NA`). | No |
