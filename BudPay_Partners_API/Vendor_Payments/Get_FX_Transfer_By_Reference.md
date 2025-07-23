@@ -35,8 +35,8 @@ curl -X GET 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer/202504
     "data": {
         "status": "awaiting approval",
         "fromCurrency": "NGN",
-        "currency": "NGN",
         "toCurrency": "USD",
+        "currency": "USD",
         "buyAmount": 2.00,
         "amount": 2.00,
         "sellAmount": 3000.00,
@@ -61,8 +61,8 @@ curl -X GET 'https://partners.budpay.com/api/v3/vendorpayment/fx-transfer/202504
 | message | String | A description of the outcome | No |
 | data.status | String | Current status of the transfer (e.g., "awaiting approval", "pending", "processing", "success", "failed") | No |
 | data.fromCurrency | String | The source currency code | No |
-| data.currency | String | The source currency code | No |
 | data.toCurrency | String | The target currency code | No |
+| data.currency | String | The target currency code | No |
 | data.buyAmount | Number | The amount in the target currency | No |
 | data.amount | Number | The amount in the target currency | No |
 | data.sellAmount | Number | The amount in the source currency | No |

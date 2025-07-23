@@ -39,7 +39,7 @@ Contains detailed information about the refund transaction.
 | `channel` | String | Channel used to initiate the refund (e.g., `API`, `Dashboard`). | No |
 | `merchantNote` | String | Internal note provided by the merchant (e.g., reason for refund). | Yes |
 | `customerNote` | String | Note visible to the customer (e.g., refund confirmation message). | Yes |
-| `status` | String | Current status of the refund (e.g., `pending`, `successful`, `failed`). | No |
+| `status` | String | Current status of the refund (e.g., `new`, `pending`, `success`, `awaiting approval`, `failed`). | No |
 | `createdAt` | String | Timestamp of when the refund was initiated (ISO 8601 format). | No |
 
 ---

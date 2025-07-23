@@ -31,8 +31,8 @@ Contains detailed information about the FX transfer transaction.
 | :-- | :-- | :-- | :-- |
 | `status` | String | Current status of the FX transfer (e.g., `pending`, `successful`, `processing`). | No |
 | `fromCurrency` | String | The source currency code | No |
-| `currency` | String | The source currency code | No |
 | `toCurrency` | String | The target currency code | No |
+| `currency` | String | The target currency code | No |
 | `buyAmount` | Number | The amount in the target currency | No |
 | `amount` | Number | The amount in the target currency | No |
 | `sellAmount` | Number | The amount in the source currency | No |
@@ -58,11 +58,11 @@ Contains detailed information about the FX transfer transaction.
     "data": {
         "status": "pending",
         "fromCurrency": "NGN",
-        "currency": "NGN",
         "toCurrency": "USD",
+        "currency": "USD",
         "buyAmount": 2.00,
-        "amount": 2.00,
         "sellAmount": 3000.00,
+        "amount": 3000.00,
         "bankCountry": "GB",
         "bankName": "Citibank NA",
         "accountNumber": "GB50CITI185008133062560",

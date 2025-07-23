@@ -62,7 +62,7 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund/Zotapay_6775575344/BR1904
 | channel            | Refund channel (e.g., `API`)                        | No       |
 | merchantNote       | Merchant's note explaining the refund               | Yes      |
 | customerNote       | Customer-facing note for the refund                 | Yes      |
-| status             | Refund status (`new`, `pending`, `processed`, `failed`)    | No       |
+| status             | Refund status (`new`, `pending`, `awaiting approval`, `success`, `failed`)    | No       |
 | createdAt          | Timestamp when the refund was initiated             | No       |
 
 ### Error Responses

@@ -59,7 +59,7 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund' \
 | channel        | Refund channel (e.g., `wema`, `pwbt`)                    |
 | merchantNote   | Merchant's note explaining the refund                    |
 | customerNote   | Customer-facing note for the refund                      |
-| status         | Refund status (`new`, `pending`, `processed`, etc.)      |
+| status         | Refund status (`new`, `pending`, `success`, `awaiting approval`, `failed`)      |
 | createdAt      | Timestamp when the refund was initiated                  |
 
 
