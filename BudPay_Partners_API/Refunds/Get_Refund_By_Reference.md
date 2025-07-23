@@ -60,7 +60,7 @@ curl -X GET 'https://partners.budpay.com/api/v3/refund/Zotapay_6775575344' \
 | channel            | Refund channel (e.g., `wema`, `pwbt`)               | No       |
 | merchantNote       | Merchant's note explaining the refund               | Yes      |
 | customerNote       | Customer-facing note for the refund                 | Yes      |
-| status             | Refund status (`pending`, `processed`, `failed`)    | No       |
+| status             | Refund status (`new`, `pending`, `processed`, `failed`)    | No       |
 | transactionReference | Reference of the original transaction              | No       |
 | createdAt          | Timestamp when the refund was initiated             | No       |
 
